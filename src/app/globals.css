@@ -1,0 +1,191 @@
+@import "tailwindcss";
+
+:root {
+  --bg: #000000;
+  --surface: #111113;
+  --green: #1c8448;
+  --green-deep: #0e5c34;
+  --green-tint: rgb(28 132 72 / 0.16);
+  --ink: #EDEFE9;
+  --slate: #8b9691;
+  --border: #23262a;
+  --shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-green: var(--green);
+  --color-green-deep: var(--green-deep);
+  --color-green-tint: var(--green-tint);
+  --color-ink: var(--ink);
+  --color-slate: var(--slate);
+  --color-border: var(--border);
+  --font-sans: var(--font-geist-sans);
+  --font-tight: var(--font-inter-tight);
+}
+
+html {
+  color-scheme: dark;
+  scroll-behavior: smooth;
+  background: var(--bg);
+}
+
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-geist-sans), Inter, ui-sans-serif, system-ui, sans-serif;
+}
+
+@keyframes live-pulse {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.35);
+    opacity: 0.45;
+  }
+}
+
+.live-dot {
+  animation: live-pulse 2s ease-in-out infinite;
+}
+
+.raycast-pill {
+  position: relative;
+  display: inline-flex;
+  overflow: hidden;
+  border-radius: 999px;
+  padding: 1px;
+  isolation: isolate;
+  background: var(--border);
+}
+
+.raycast-pill::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 220%;
+  aspect-ratio: 1;
+  background: conic-gradient(
+    from 0deg,
+    transparent 0deg,
+    transparent 220deg,
+    rgb(28 132 72 / 0) 250deg,
+    var(--green) 300deg,
+    #3cb86a 332deg,
+    var(--green) 348deg,
+    transparent 360deg
+  );
+  transform: translate(-50%, -50%);
+  animation: border-spin 3.2s linear infinite;
+  z-index: 0;
+}
+
+.raycast-pill-label {
+  position: relative;
+  z-index: 1;
+  border-radius: 999px;
+  background: var(--surface);
+  padding: 4px 12px;
+  font-size: 12px;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+}
+
+@keyframes border-spin {
+  from {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  to {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+.fig-inv-layer {
+  animation: fig-inv-lift 6.2s cubic-bezier(0.45, 0, 0.15, 1) infinite;
+}
+
+@keyframes fig-inv-lift {
+  0%,
+  16%,
+  100% {
+    transform: translate(0, 0);
+  }
+  40%,
+  58% {
+    transform: translate(0, calc(var(--i) * -12px));
+  }
+}
+
+.fig-pay-slice {
+  animation: fig-pay-slice 5.4s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+@keyframes fig-pay-slice {
+  0%,
+  20% {
+    transform: translate(0, 0);
+    opacity: 1;
+  }
+  46%,
+  60% {
+    transform: translate(32px, 18px);
+    opacity: 0.9;
+  }
+  88%,
+  100% {
+    transform: translate(0, 0);
+    opacity: 1;
+  }
+}
+
+.fig-sale-bar {
+  transform-box: fill-box;
+  transform-origin: 50% 100%;
+  animation: fig-sale-rise 5.8s cubic-bezier(0.45, 0, 0.2, 1) infinite;
+  animation-delay: calc(var(--i) * 0.11s);
+}
+
+@keyframes fig-sale-rise {
+  0%,
+  10% {
+    transform: scaleY(0.22);
+    opacity: 0.45;
+  }
+  32%,
+  68% {
+    transform: scaleY(1);
+    opacity: 1;
+  }
+  90%,
+  100% {
+    transform: scaleY(0.22);
+    opacity: 0.45;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .live-dot,
+  .raycast-pill::before,
+  .fig-inv-layer,
+  .fig-pay-slice,
+  .fig-sale-bar {
+    animation: none;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

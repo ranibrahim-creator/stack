@@ -154,7 +154,6 @@ export function MatrixRain({
       }
 
       const horizon = mode === "mirror" ? height * 0.58 : height;
-      const pillLeft = 2;
 
       for (let i = 0; i < columns; i += 1) {
         if (mode === "field" && i % 3 !== 0) continue;
@@ -163,39 +162,21 @@ export function MatrixRain({
         trails[i].unshift(glyph());
 
         const x =
-          mode === "mirror"
-            ? width * MIRROR_SLOTS[i]
-            : mode === "pill"
-              ? pillLeft + i * cell
-              : i * cell + 2;
+          mode === "mirror" ? width * MIRROR_SLOTS[i] : i * cell + 2;
         const reach = mode === "mirror" ? horizon * MIRROR_REACH[i] : height;
         const strength =
-          mode === "mirror"
-            ? 0.45 + MIRROR_REACH[i] * 0.55
-            : mode === "pill"
-              ? 0.85
-              : 1;
+          mode === "mirror" ? 0.45 + MIRROR_REACH[i] * 0.55 : 1;
 
         for (let t = 0; t < TRAIL; t += 1) {
-          const dist = (drops[i] - t) * cell;
           const y =
-            mode === "mirror" || mode === "pill"
-              ? horizon - dist
+            mode === "mirror"
+              ? horizon - (drops[i] - t) * cell
               : (drops[i] - t) * cell;
           if (mode === "mirror" && (y < horizon - reach || y > horizon)) continue;
-          if (mode === "pill" && (y < -cell || y > horizon)) continue;
-          if (mode !== "mirror" && mode !== "pill" && (y < -cell || y > height + cell))
-            continue;
+          if (mode !== "mirror" && (y < -cell || y > height + cell)) continue;
 
           const fade = 1 - t / TRAIL;
-          const head = mode === "pill" ? 0.72 : 0.28;
-          const tail = mode === "pill" ? 0.1 + fade * 0.28 : 0.04 + fade * 0.12;
-          const rise =
-            mode === "pill"
-              ? Math.min(1, Math.max(0, (horizon - y) / (horizon * 0.92)))
-              : 0;
-          const distanceFade = mode === "pill" ? 1 - rise * rise : 1;
-          const alpha = (t === 0 ? head : tail) * strength * distanceFade;
+          const alpha = (t === 0 ? 0.28 : 0.04 + fade * 0.12) * strength;
           ctx.fillStyle =
             t === 0
               ? `rgba(196, 232, 208, ${alpha})`
@@ -215,13 +196,9 @@ export function MatrixRain({
         }
 
         const limit =
-          mode === "mirror"
-            ? reach / cell + TRAIL
-            : mode === "pill"
-              ? horizon / cell + 2
-              : height / cell + TRAIL;
+          mode === "mirror" ? reach / cell + TRAIL : height / cell + TRAIL;
         if (drops[i] > limit) {
-          drops[i] = mode === "pill" ? 0 : -2 - ((Math.random() * 10) | 0);
+          drops[i] = -2 - ((Math.random() * 10) | 0);
         } else {
           drops[i] += 1;
         }

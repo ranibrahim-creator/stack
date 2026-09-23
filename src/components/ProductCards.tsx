@@ -1,50 +1,7 @@
 "use client";
 
+import { IsoBox } from "./iso";
 import { Reveal } from "./ui/Reveal";
-
-function p(
-  x: number,
-  y: number,
-  z: number,
-  ox: number,
-  oy: number,
-  s = 1,
-) {
-  return `${ox + (x - z) * 0.866 * s},${oy + (x + z) * 0.5 * s - y * s}`;
-}
-
-function IsoBox({
-  x,
-  y,
-  z,
-  w,
-  h,
-  d,
-  ox,
-  oy,
-  s = 1,
-  stroke = "#D0D6E0",
-}: {
-  x: number;
-  y: number;
-  z: number;
-  w: number;
-  h: number;
-  d: number;
-  ox: number;
-  oy: number;
-  s?: number;
-  stroke?: string;
-}) {
-  const pt = (dx: number, dy: number, dz: number) => p(x + dx, y + dy, z + dz, ox, oy, s);
-  return (
-    <g fill="#000" stroke={stroke} strokeWidth="0.7" strokeLinejoin="round">
-      <path d={`M ${pt(0, h, d)} L ${pt(w, h, d)} L ${pt(w, 0, d)} L ${pt(0, 0, d)} Z`} />
-      <path d={`M ${pt(w, h, 0)} L ${pt(w, h, d)} L ${pt(w, 0, d)} L ${pt(w, 0, 0)} Z`} />
-      <path d={`M ${pt(0, h, 0)} L ${pt(w, h, 0)} L ${pt(w, h, d)} L ${pt(0, h, d)} Z`} />
-    </g>
-  );
-}
 
 const FIG = { w: 280, h: 260, s: 1.5 };
 
@@ -163,7 +120,7 @@ export function ProductCards() {
   return (
     <section
       id="products"
-      className="scroll-mt-24 px-5 pt-24 font-[family-name:var(--font-inter-tight)] md:px-8 md:pt-32 lg:px-12 lg:pt-40"
+      className="scroll-mt-24 px-5 pt-28 font-[family-name:var(--font-inter-tight)] md:px-8 md:pt-36 lg:px-12"
     >
       <Reveal>
         <p
@@ -201,6 +158,16 @@ export function ProductCards() {
           </Reveal>
         ))}
       </div>
+
+      <Reveal className="mt-16 grid grid-cols-3 items-start border-t border-[#1a1a1a] pt-6 md:mt-20">
+        <p className="col-span-2 px-5 text-[15px] leading-[1.4] tracking-[-0.022em] text-[#8A8F98] md:px-8">
+          Built within the noon ecosystem — Seller Lab, fulfilment, commerce
+          data, and weekly payouts.
+        </p>
+        <p className="px-5 text-left font-[family-name:var(--font-plex-mono)] text-[11px] leading-[1.4] tracking-[0.04em] text-[#5c6166] md:px-8">
+          3+ financing cycles per seller, on average
+        </p>
+      </Reveal>
     </section>
   );
 }

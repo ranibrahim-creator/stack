@@ -2,8 +2,14 @@ import { Logo } from "./Logo";
 
 export function Header() {
   return (
-    <header className="fixed inset-x-0 top-0 z-50 bg-bg">
-      <div className="flex h-14 items-center px-5 md:h-[60px] md:px-8 lg:px-10">
+    <header
+      className="fixed inset-x-0 top-0 z-50 border-b border-white/[0.06] backdrop-blur-xl backdrop-saturate-150"
+      style={{
+        background: "rgb(255 255 255 / 0.055)",
+        boxShadow: "0 16px 36px rgb(0 0 0 / 0.38)",
+      }}
+    >
+      <div className="flex h-11 items-center px-5 md:h-12 md:px-8 lg:px-10">
         <a
           href="#top"
           className="flex items-center gap-2.5 text-ink"

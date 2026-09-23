@@ -7,15 +7,23 @@ import { Reveal } from "./ui/Reveal";
 const items = [
   {
     q: "What is Stack?",
-    a: "Stack is noon's B2B financing platform. We use data and infrastructure from within the noon ecosystem to provide embedded working capital to businesses.",
+    a: "Stack is noon’s B2B financing platform. We use data and infrastructure from within the noon ecosystem to provide embedded working capital to businesses.",
   },
   {
-    q: "Who can use it?",
-    a: "Eligible noon sellers in the UAE, based on business performance and other relevant signals.",
+    q: "Who can use Stack?",
+    a: "Eligible noon sellers — businesses already operating on noon.",
+  },
+  {
+    q: "How are sellers assessed?",
+    a: "Commerce and operational signals from the seller’s activity on noon determine eligibility and potential financing limits.",
+  },
+  {
+    q: "Is Stack available outside the UAE?",
+    a: "No. Stack’s current financing proposition is focused on the UAE.",
   },
   {
     q: "How does repayment work?",
-    a: "Linked to your future noon sales and collected through noon's existing weekly seller payout — not a separate bill.",
+    a: "Repayment is linked to future noon sales and collected through noon’s existing weekly seller payout — not a separate bill.",
   },
   {
     q: "Are there any fees I should know about?",
@@ -23,7 +31,7 @@ const items = [
   },
   {
     q: "Does Stack work with financial institutions?",
-    a: "Yes — Stack's technology and embedded infrastructure can support financing programs with banks and other financial institutions.",
+    a: "Yes. Stack’s technology and embedded infrastructure can support financing programs with banks and other financial institutions.",
   },
 ];
 
@@ -33,7 +41,7 @@ export function FAQ() {
   return (
     <section
       id="faq"
-      className="relative z-10 scroll-mt-24 px-5 py-16 font-[family-name:var(--font-inter-tight)] md:px-8 md:py-20 lg:px-12"
+      className="relative z-10 scroll-mt-24 px-5 pt-24 pb-28 font-[family-name:var(--font-inter-tight)] md:px-8 md:pt-32 md:pb-36 lg:px-12"
     >
       <Reveal className="mx-auto max-w-6xl">
         <div className="flex flex-col gap-10 lg:flex-row lg:gap-16">

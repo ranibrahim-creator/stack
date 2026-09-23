@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Geist, Inter_Tight } from "next/font/google";
+import { Geist, IBM_Plex_Mono, IBM_Plex_Sans, Inter_Tight } from "next/font/google";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -12,6 +12,18 @@ const interTight = Inter_Tight({
   subsets: ["latin"],
 });
 
+const plexSans = IBM_Plex_Sans({
+  variable: "--font-plex-sans",
+  subsets: ["latin"],
+  weight: ["400", "500"],
+});
+
+const plexMono = IBM_Plex_Mono({
+  variable: "--font-plex-mono",
+  subsets: ["latin"],
+  weight: ["400", "500"],
+});
+
 export const metadata: Metadata = {
   title: "Stack — Funding that grows with your sales",
   description:
@@ -22,7 +34,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${interTight.variable} h-full antialiased`}
+      className={`${geistSans.variable} ${interTight.variable} ${plexSans.variable} ${plexMono.variable} h-full antialiased`}
     >
       <body
         className="min-h-full font-sans text-ink"

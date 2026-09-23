@@ -21,8 +21,9 @@
   --color-ink: var(--ink);
   --color-slate: var(--slate);
   --color-border: var(--border);
-  --font-sans: var(--font-geist-sans);
+  --font-sans: var(--font-plex-sans);
   --font-tight: var(--font-inter-tight);
+  --font-mono: var(--font-plex-mono);
 }
 
 html {
@@ -34,7 +35,7 @@ html {
 body {
   background: var(--bg);
   color: var(--ink);
-  font-family: var(--font-geist-sans), Inter, ui-sans-serif, system-ui, sans-serif;
+  font-family: var(--font-plex-sans), Inter, ui-sans-serif, system-ui, sans-serif;
 }
 
 @keyframes live-pulse {
@@ -81,7 +82,7 @@ body {
     transparent 360deg
   );
   transform: translate(-50%, -50%);
-  animation: border-spin 3.2s linear infinite;
+  animation: border-spin 7.2s linear infinite;
   z-index: 0;
 }
 
@@ -103,6 +104,12 @@ body {
   to {
     transform: translate(-50%, -50%) rotate(360deg);
   }
+}
+
+.faq-pill {
+  background: rgb(22 24 26 / 0.72);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
 }
 
 .fig-inv-layer {
@@ -133,7 +140,7 @@ body {
   }
   46%,
   60% {
-    transform: translate(32px, 18px);
+    transform: translate(16px, 9px);
     opacity: 0.9;
   }
   88%,

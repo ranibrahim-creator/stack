@@ -1,7 +1,5 @@
 "use client";
 
-import { motion, useReducedMotion, useScroll, useTransform } from "framer-motion";
-import { useRef } from "react";
 import { Logo } from "./Logo";
 
 function p(x: number, y: number, z: number, ox: number, oy: number, s = 1) {
@@ -40,8 +38,8 @@ function IsoBox({
 }
 
 function InventoryFinanceMark() {
-  const ox = 210;
-  const oy = 250;
+  const ox = 200;
+  const oy = 210;
   const s = 2.05;
   const w = 54;
   const d = 54;
@@ -53,7 +51,7 @@ function InventoryFinanceMark() {
   const cy = oy + (w / 2 + d / 2) * 0.5 * s - topY * s;
 
   return (
-    <svg viewBox="0 0 420 320" className="h-full w-full" fill="none" aria-hidden>
+    <svg viewBox="0 0 480 420" className="h-full w-full overflow-visible" fill="none" aria-hidden>
       {Array.from({ length: layers }, (_, i) => (
         <g key={i} className="fig-inv-layer" style={{ ["--i" as string]: i }}>
           <IsoBox x={0} y={i * (h + gap)} z={0} w={w} h={h} d={d} ox={ox} oy={oy} s={s} />
@@ -73,81 +71,62 @@ function InventoryFinanceMark() {
 }
 
 export function Footer() {
-  const revealRef = useRef<HTMLDivElement>(null);
-  const reduceMotion = useReducedMotion();
-  const { scrollYProgress } = useScroll({
-    target: revealRef,
-    offset: ["start end", "end end"],
-  });
-
-  const still = !!reduceMotion;
-  const textY = useTransform(scrollYProgress, [0, 1], still ? [0, 0] : [36, 0]);
-  const markY = useTransform(scrollYProgress, [0, 1], still ? [0, 0] : [64, -8]);
-
   return (
-    <>
-      <div ref={revealRef} aria-hidden className="h-[72svh] md:h-[80svh]" />
-      <footer
-        id="contact"
-        className="fixed inset-x-0 bottom-0 z-0 flex h-[72svh] flex-col justify-between overflow-hidden bg-bg px-5 py-8 font-[family-name:var(--font-inter-tight)] md:h-[80svh] md:px-8 md:py-10 lg:px-12"
-      >
-        <motion.div
-          aria-hidden
-          style={{ y: markY }}
-          className="pointer-events-none absolute -right-8 top-[12%] h-[68%] w-[min(640px,78vw)] opacity-[0.22] md:-right-4 md:opacity-[0.26]"
-        >
-          <InventoryFinanceMark />
-        </motion.div>
-
-        <div />
-
-        <motion.p
-          style={{ y: textY }}
-          className="relative max-w-[720px] text-[32px] font-normal leading-[1.12] tracking-[-0.038em] text-[#8A8F98] sm:text-[36px] lg:text-[40px]"
-        >
+    <footer
+      id="contact"
+      className="relative overflow-hidden bg-bg px-5 pb-8 pt-16 font-[family-name:var(--font-inter-tight)] md:px-8 md:pb-10 md:pt-20 lg:px-12"
+    >
+      <div className="relative flex items-center justify-between gap-8">
+        <p className="relative max-w-[640px] text-[32px] font-normal leading-[1.12] tracking-[-0.038em] text-[#8A8F98] sm:text-[36px] lg:text-[40px]">
           <span className="text-ink">Built for the future. </span>
           Available today.
-        </motion.p>
+        </p>
+        <div
+          aria-hidden
+          className="pointer-events-none hidden h-[280px] w-[min(480px,42vw)] shrink-0 opacity-[0.22] md:block md:h-[320px] md:opacity-[0.26]"
+        >
+          <InventoryFinanceMark />
+        </div>
+      </div>
 
-        <div className="relative flex flex-col gap-8 border-t border-[#1a1a1a] pt-6 md:flex-row md:items-end md:justify-between">
-          <div>
-            <a href="#top" className="inline-flex items-center gap-2.5 text-ink" aria-label="stack">
-              <Logo className="h-3.5 w-5" />
-              <span className="text-[15px] font-medium tracking-[-0.02em]">stack</span>
-            </a>
-            <div className="mt-4 space-y-2 text-[13px] leading-relaxed text-slate">
-              <p>
-                For sellers:{" "}
-                <a href="mailto:stack@noon.com" className="text-green hover:text-ink">
-                  stack@noon.com
-                </a>
-              </p>
-              <p>For financial institutions: partnership enquiries → email TBD</p>
-              <p>
-                <a
-                  href="https://www.noon.com"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="text-green hover:text-ink"
-                >
-                  Not selling on noon yet? →
-                </a>
-              </p>
-            </div>
-          </div>
-          <div className="flex flex-col gap-4 md:items-end">
-            <nav className="flex gap-5 text-[13px] text-slate">
-              <a href="#top" className="hover:text-ink">
-                Terms
+      <div className="relative mt-12 flex flex-col gap-8 border-t border-[#1a1a1a] pt-6 md:mt-14 md:flex-row md:items-end md:justify-between">
+        <div>
+          <a href="#top" className="inline-flex items-center gap-2.5 text-ink" aria-label="stack">
+            <Logo className="h-3.5 w-5" />
+            <span className="text-[15px] font-medium tracking-[-0.02em]">stack</span>
+          </a>
+          <div className="mt-4 space-y-2 text-[13px] leading-relaxed text-slate">
+            <p>
+              For sellers:{" "}
+              <a href="mailto:stack@noon.com" className="text-green hover:text-ink">
+                stack@noon.com
               </a>
-              <a href="#top" className="hover:text-ink">
-                Privacy
+            </p>
+            <p>For financial institutions: partnership enquiries → email TBD</p>
+            <p>
+              <a
+                href="https://www.noon.com"
+                target="_blank"
+                rel="noreferrer"
+                className="text-green hover:text-ink"
+              >
+                Not selling on noon yet? →
               </a>
-            </nav>
-            <p className="text-[12px] text-slate">© noon</p>
+            </p>
           </div>
         </div>
-      </footer>
-    </>
+        <div className="flex flex-col gap-4 md:items-end">
+          <nav className="flex gap-5 text-[13px] text-slate">
+            <a href="#top" className="hover:text-ink">
+              Terms
+            </a>
+            <a href="#top" className="hover:text-ink">
+              Privacy
+            </a>
+          </nav>
+          <p className="text-[12px] text-slate">© noon</p>
+        </div>
+      </div>
+    </footer>
   );
 }

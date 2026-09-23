@@ -48,14 +48,14 @@ export function Hero() {
   return (
     <section className="relative isolate overflow-hidden pt-32 md:pt-44 lg:pt-[220px]">
       <div className="px-5 md:px-8 lg:px-10">
-        <h1 className="text-left text-[44px] font-normal leading-[1.05] tracking-[-0.04em] text-ink sm:text-[56px] lg:text-[64px]">
+        <h1 className="text-left text-[44px] font-normal leading-[1.18] tracking-[-0.04em] text-ink sm:text-[56px] lg:text-[64px]">
           {lines.map((line, lineIndex) => (
             <span
               key={line.join("-")}
               className="flex flex-wrap gap-x-[0.28em]"
             >
               {line.map((word, wordIndex) => (
-                <span key={word} className="overflow-hidden leading-[1.05]">
+                <span key={word} className="overflow-hidden pb-[0.22em] leading-[1.18]">
                   <motion.span
                     initial={{ y: "115%", opacity: 0, filter: "blur(8px)" }}
                     animate={{ y: "0%", opacity: 1, filter: "blur(0px)" }}

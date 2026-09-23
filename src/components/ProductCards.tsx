@@ -46,12 +46,14 @@ function IsoBox({
   );
 }
 
+const FIG = { w: 280, h: 260, s: 1.5 };
+
 function InventoryFigure() {
-  const ox = 132;
-  const oy = 188;
-  const s = 1.35;
-  const w = 54;
-  const d = 54;
+  const ox = 140;
+  const oy = 172;
+  const s = FIG.s;
+  const w = 50;
+  const d = 50;
   const h = 6;
   const gap = 2.2;
   const layers = 5;
@@ -60,7 +62,7 @@ function InventoryFigure() {
   const cy = oy + (w / 2 + d / 2) * 0.5 * s - topY * s;
 
   return (
-    <svg viewBox="0 0 264 260" className="h-[200px] w-[204px]" fill="none" aria-hidden>
+    <svg viewBox={`0 0 ${FIG.w} ${FIG.h}`} className="size-[200px]" fill="none" aria-hidden>
       {Array.from({ length: layers }, (_, i) => (
         <g key={i} className="fig-inv-layer" style={{ ["--i" as string]: i }}>
           <IsoBox x={0} y={i * (h + gap)} z={0} w={w} h={h} d={d} ox={ox} oy={oy} s={s} />
@@ -77,16 +79,16 @@ function InventoryFigure() {
 }
 
 function RepaymentFigure() {
-  const ox = 118;
-  const oy = 188;
-  const s = 1.35;
-  const w = 44;
+  const ox = 122;
+  const oy = 172;
+  const s = FIG.s;
+  const w = 42;
   const slice = 9;
-  const h = 38;
-  const d = 44;
+  const h = 36;
+  const d = 42;
 
   return (
-    <svg viewBox="0 0 264 260" className="h-[200px] w-[204px]" fill="none" aria-hidden>
+    <svg viewBox={`0 0 ${FIG.w} ${FIG.h}`} className="size-[200px]" fill="none" aria-hidden>
       <IsoBox x={0} y={0} z={0} w={w} h={h} d={d} ox={ox} oy={oy} s={s} />
       <g className="fig-pay-slice">
         <IsoBox
@@ -107,16 +109,16 @@ function RepaymentFigure() {
 }
 
 function SalesFigure() {
-  const ox = 72;
-  const oy = 196;
-  const s = 1.2;
-  const heights = [22, 34, 26, 50, 38, 58, 44];
-  const pitch = 11;
+  const ox = 100;
+  const oy = 172;
+  const s = FIG.s;
+  const heights = [20, 32, 24, 46, 36, 52, 40];
+  const pitch = 10;
   const barW = 8;
-  const barD = 16;
+  const barD = 20;
 
   return (
-    <svg viewBox="0 0 264 260" className="h-[200px] w-[204px]" fill="none" aria-hidden>
+    <svg viewBox={`0 0 ${FIG.w} ${FIG.h}`} className="size-[200px]" fill="none" aria-hidden>
       {heights.map((height, i) => (
         <g key={i} className="fig-sale-bar" style={{ ["--i" as string]: i }}>
           <IsoBox
@@ -151,7 +153,7 @@ const figures = [
   },
   {
     id: "FIG 0.3",
-    title: "Based on sales you already make",
+    title: "Based on your sales",
     body: "Eligibility uses existing commerce signals. Total shown before you accept.",
     Figure: SalesFigure,
   },
@@ -180,22 +182,20 @@ export function ProductCards() {
           <Reveal
             key={item.id}
             delay={index * 0.08}
-            className={`flex min-w-0 flex-col ${
-              index === 0
-                ? "pr-4 md:pr-10"
-                : index === figures.length - 1
-                  ? "border-l border-[#1a1a1a] pl-4 md:pl-10"
-                  : "border-l border-[#1a1a1a] px-4 md:px-10"
+            className={`flex min-w-0 flex-col px-5 md:px-8 ${
+              index > 0 ? "border-l border-[#1a1a1a]" : ""
             }`}
           >
-            <p className="text-[11px] tracking-[0.08em] text-[#5c6166]">{item.id}</p>
-            <div className="flex h-[260px] items-center justify-center lg:h-[320px]">
+            <p className="font-[family-name:var(--font-plex-mono)] text-[11px] tracking-[0.08em] text-[#5c6166]">
+              {item.id}
+            </p>
+            <div className="flex h-[240px] items-center justify-center lg:h-[280px]">
               <item.Figure />
             </div>
-            <h3 className="text-[14px] font-medium tracking-[-0.025em] text-ink">
+            <h3 className="min-h-[1.3em] text-[15px] font-medium tracking-[-0.025em] text-ink">
               {item.title}
             </h3>
-            <p className="mt-2 max-w-[280px] text-[13px] leading-[1.45] tracking-[-0.018em] text-[#8A8F98]">
+            <p className="mt-2 min-h-[4em] text-[13px] leading-[1.45] tracking-[-0.018em] text-[#8A8F98]">
               {item.body}
             </p>
           </Reveal>

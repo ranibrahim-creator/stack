@@ -125,7 +125,7 @@ export function ProductCards() {
       <Reveal>
         <p
           id="product-terms"
-          className="max-w-[920px] scroll-mt-28 text-[32px] font-normal leading-[1.12] tracking-[-0.038em] text-[#8A8F98] sm:text-[36px] lg:text-[40px]"
+          className="w-full scroll-mt-28 text-[32px] font-normal leading-[1.12] tracking-[-0.038em] text-[#8A8F98] sm:text-[36px] lg:text-[40px]"
         >
           <span className="text-ink">Seller Financing is live. </span>
           Purpose-built for noon sellers in the UAE. Capital sits on inventory

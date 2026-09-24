@@ -1,0 +1,20 @@
+1:"$Sreact.fragment"
+2:I[3824,["192","static/chunks/192-1e40ca85d0b1b506.js","974","static/chunks/app/page-43e21f6a3cc7f0da.js"],"Gone"]
+3:I[484,[],"OutletBoundary"]
+4:"$Sreact.suspense"
+8:I[484,[],"ViewportBoundary"]
+9:I[484,[],"MetadataBoundary"]
+a:I[6869,[],"IconMark"]
+c:I[7121,[],""]
+d:I[4581,[],""]
+:HL["/stack/_next/static/css/e7a1917d87064b6a.css","style"]
+7:X
+0:{"buildId":"Pi0EeeatLAZxPxKsqN7ms","data":[{"rsc":["$","$1","c",{"children":[["$","$L2",null,{}],null,["$","$L3",null,{"children":["$","$4",null,{"name":"Next.MetadataOutlet","children":"$@5"}]}]]}],"isPartial":"$@6","staleTime":"$7","varyParams":null},{"rsc":["$","$1","h",{"children":[null,["$","$L8",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]}],["$","div",null,{"hidden":true,"children":["$","$L9",null,{"children":["$","$4",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"Stack — Funding that grows with your sales"}],["$","meta","1",{"name":"description","content":"Working capital for noon sellers in the UAE, based on your sales. No applications, no fixed bill."}],["$","link","2",{"rel":"icon","href":"/stack/favicon.ico?603d046c9a6fdfbb","type":"image/x-icon","sizes":"16x16"}],["$","$La","3",{}]]}]}]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}],"isPartial":"$@b","staleTime":"$7","varyParams":null},{"rsc":["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/stack/_next/static/css/e7a1917d87064b6a.css","precedence":"next"}]],["$","html",null,{"lang":"en","className":"__variable_5136b9 __variable_8c0c33 __variable_0b3dae __variable_51a351 h-full antialiased","children":["$","body",null,{"className":"min-h-full font-sans text-ink","style":{"background":"var(--bg)","color":"var(--ink)"},"children":["$","$Lc",null,{"parallelRouterKey":"children","template":["$","$Ld",null,{}],"notFound":[["$","$L2",null,{}],[]]}]}]}]]}],"isPartial":"$@e","staleTime":"$7","varyParams":null}],"isUpgradeableISRFallback":false,"a":"$@f","rootVaryParams":null,"needsRuntimeRequest":"$@10"}
+5:null
+7:300
+10:true
+7:C
+f:0
+b:"$undefined"
+e:"$undefined"
+6:"$undefined"

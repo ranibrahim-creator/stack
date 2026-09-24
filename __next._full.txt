@@ -1,0 +1,20 @@
+1:"$Sreact.fragment"
+2:I[7121,[],""]
+3:I[4581,[],""]
+4:I[3824,["192","static/chunks/192-1e40ca85d0b1b506.js","974","static/chunks/app/page-43e21f6a3cc7f0da.js"],"Gone"]
+5:I[484,[],"OutletBoundary"]
+6:"$Sreact.suspense"
+8:I[484,[],"ViewportBoundary"]
+a:I[484,[],"MetadataBoundary"]
+c:I[7123,[],"default",1]
+:HL["/stack/_next/static/media/103fc5fac08dcb15-s.p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/stack/_next/static/media/22a5144ee8d83bca-s.p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/stack/_next/static/media/26d4368bf94c0ec4-s.p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/stack/_next/static/media/98e207f02528a563-s.p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/stack/_next/static/media/d3ebbfd689654d3a-s.p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/stack/_next/static/css/e7a1917d87064b6a.css","style"]
+0:{"P":null,"c":["",""],"q":"","i":false,"f":[[["",{"children":["__PAGE__",{},"$undefined","$undefined",4608]},"$undefined","$undefined",4624],[["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/stack/_next/static/css/e7a1917d87064b6a.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]],["$","html",null,{"lang":"en","className":"__variable_5136b9 __variable_8c0c33 __variable_0b3dae __variable_51a351 h-full antialiased","children":["$","body",null,{"className":"min-h-full font-sans text-ink","style":{"background":"var(--bg)","color":"var(--ink)"},"children":["$","$L2",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L3",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[["$","$L4",null,{}],[]],"forbidden":"$undefined","unauthorized":"$undefined"}]}]}]]}],{"children":[["$","$1","c",{"children":[["$","$L4",null,{}],null,["$","$L5",null,{"children":["$","$6",null,{"name":"Next.MetadataOutlet","children":"$@7"}]}]]}],{},null,false,null]},null,false,null],["$","$1","h",{"children":[null,["$","$L8",null,{"children":"$L9"}],["$","div",null,{"hidden":true,"children":["$","$La",null,{"children":["$","$6",null,{"name":"Next.Metadata","children":"$Lb"}]}]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}],false]],"m":"$undefined","G":["$c",[]],"S":true,"h":null,"r":"$undefined","s":"$undefined","a":"$undefined","l":"$undefined","p":"$undefined","d":"$undefined","b":"Pi0EeeatLAZxPxKsqN7ms"}
+9:[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]
+d:I[6869,[],"IconMark"]
+7:null
+b:[["$","title","0",{"children":"Stack — Funding that grows with your sales"}],["$","meta","1",{"name":"description","content":"Working capital for noon sellers in the UAE, based on your sales. No applications, no fixed bill."}],["$","link","2",{"rel":"icon","href":"/stack/favicon.ico?603d046c9a6fdfbb","type":"image/x-icon","sizes":"16x16"}],["$","$Ld","3",{}]]

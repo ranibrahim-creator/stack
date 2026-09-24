@@ -6,10 +6,7 @@ import { NumberLanes } from "./NumberLanes";
 
 const ease = [0.16, 1, 0.3, 1] as const;
 
-const lines = [
-  ["The", "Stack", "landing", "page"],
-  ["is", "still", "a", "work", "in", "progress."],
-];
+const lines = [["Stack", "is", "still", "in", "progress."]];
 
 export function Gone() {
   return (

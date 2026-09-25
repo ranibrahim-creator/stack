@@ -108,7 +108,7 @@ export function CircuitBoard({
 
   return (
     <div
-      className={`glass-card-mint relative overflow-hidden rounded-2xl ${className}`}
+      className={`glass-card-mint relative overflow-hidden rounded-[12px] px-2 py-4 sm:px-4 ${className}`}
       style={{ aspectRatio: `${width} / ${height}` }}
     >
       {showGrid ? <div className="circuit-grid absolute inset-0 opacity-50" /> : null}
@@ -159,14 +159,14 @@ export function CircuitBoard({
       {nodes.map((node) => (
         <div
           key={node.id}
-          className="absolute flex -translate-x-1/2 -translate-y-1/2 flex-col items-center gap-1.5"
+          className="absolute flex -translate-x-1/2 -translate-y-1/2 flex-col items-center gap-2"
           style={{
             left: `${(node.x / width) * 100}%`,
             top: `${(node.y / height) * 100}%`,
           }}
         >
           {node.icon}
-          <span className="whitespace-nowrap font-[family-name:var(--font-plex-mono)] text-[11px] tracking-[0.04em] text-[#8A8F98]">
+          <span className="max-w-24 text-center font-[family-name:var(--font-plex-mono)] text-[10px] leading-[1.3] text-[#8A8F98] sm:max-w-none sm:text-[11px] md:whitespace-nowrap md:text-[12px]">
             {node.label}
           </span>
         </div>

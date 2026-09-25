@@ -1,33 +1,46 @@
-"use client";
-
-import { NumberLanes } from "./NumberLanes";
+import { Logo } from "./Logo";
 
 export function Footer() {
   return (
-    <footer
-      id="contact"
-      className="relative overflow-visible bg-bg pt-0 font-[family-name:var(--font-inter-tight)]"
-    >
-      <div className="pointer-events-none absolute inset-x-0 -top-[140px] bottom-0 md:-top-[160px]">
-        <NumberLanes className="h-full w-full" />
-        <div className="absolute inset-x-0 top-0 h-28 bg-gradient-to-b from-bg to-transparent" />
-      </div>
+    <div className="font-[family-name:var(--font-inter-tight)]">
+      <section
+        id="close"
+        className="section-shell flex flex-col items-center text-center !py-16 md:!py-24 lg:!py-32"
+      >
+        <p className="page-title page-title-md max-w-2xl">
+          Built for the future. Available today.
+        </p>
+      </section>
 
-      <div className="relative z-10 flex flex-col items-center px-5 pb-28 pt-32 text-center md:pb-36 md:pt-40">
-        <p className="max-w-[720px] text-[32px] font-normal leading-[1.12] tracking-[-0.038em] text-[#8A8F98] sm:text-[36px] lg:text-[40px]">
-          <span className="text-ink">Built for the future. </span>
-          Available today.
-        </p>
-        <a href="mailto:stack@noon.com" className="raycast-pill mt-6">
-          <span className="raycast-pill-label">stack@noon.com</span>
-        </a>
-        <p className="mt-5 text-[13px] leading-relaxed text-[#8A8F98]">
-          For financial institutions: partnership enquiries →{" "}
-          <a href="mailto:stack@noon.com" className="text-green hover:text-ink">
-            stack@noon.com
-          </a>
-        </p>
-      </div>
-    </footer>
+      <footer id="contact" className="section-shell border-t border-white/[0.06]">
+        <div className="flex flex-col gap-2 text-[12px] leading-[1.5] text-[#5c6166] sm:flex-row sm:flex-wrap sm:gap-x-8 sm:gap-y-2">
+          <p>
+            Sellers{" "}
+            <a href="mailto:stack@noon.com">stack@noon.com</a>
+          </p>
+          <p>
+            Partners{" "}
+            <a href="mailto:stack@noon.com">stack@noon.com</a>
+          </p>
+        </div>
+
+        <div className="mt-8 flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
+          <div className="flex items-center gap-4 text-[#5c6166]">
+            <a
+              href="#top"
+              className="flex items-center gap-2"
+              aria-label="stack"
+            >
+              <Logo className="h-4 w-5" />
+            </a>
+            <p className="text-[12px] leading-[1.5]">© noon</p>
+          </div>
+          <nav className="flex flex-wrap gap-x-6 gap-y-2 text-[12px] leading-[1.5] text-[#5c6166]" aria-label="Legal">
+            <a href="#terms">Terms</a>
+            <a href="#privacy">Privacy</a>
+          </nav>
+        </div>
+      </footer>
+    </div>
   );
 }

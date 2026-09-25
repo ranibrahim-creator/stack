@@ -14,7 +14,7 @@ export function SectionBridge() {
   const y = useTransform(scrollYProgress, [0, 1], reduceMotion ? [0, 0] : [-64, 64]);
 
   return (
-    <div ref={ref} className="relative h-24 overflow-hidden md:h-28" aria-hidden>
+    <div ref={ref} className="relative h-16 overflow-hidden md:h-24" aria-hidden>
       <motion.div style={{ y }} className="absolute inset-x-0 -top-28 -bottom-28">
         <MatrixRain mode="field" className="h-full w-full" />
       </motion.div>

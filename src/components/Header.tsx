@@ -9,16 +9,14 @@ export function Header() {
         boxShadow: "0 16px 36px rgb(0 0 0 / 0.38)",
       }}
     >
-      <div className="flex h-11 items-center px-5 md:h-12 md:px-8 lg:px-10">
+      <div className="flex h-12 items-center px-4 md:px-5">
         <a
           href="#top"
-          className="flex items-center gap-2.5 text-ink"
+          className="flex items-center gap-2 text-ink"
           aria-label="stack by noon"
         >
-          <Logo className="h-3.5 w-5" />
-          <span className="text-[14px] font-medium tracking-[-0.02em]">
-            stack by noon
-          </span>
+          <Logo className="h-4 w-5" />
+          <span className="text-[14px] font-medium">stack by noon</span>
         </a>
       </div>
     </header>

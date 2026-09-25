@@ -24,6 +24,11 @@ const plexMono = IBM_Plex_Mono({
   weight: ["400", "500"],
 });
 
+export const viewport = {
+  width: "device-width",
+  initialScale: 1,
+};
+
 export const metadata: Metadata = {
   title: "Stack — Funding that grows with your sales",
   description:
@@ -37,7 +42,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       className={`${geistSans.variable} ${interTight.variable} ${plexSans.variable} ${plexMono.variable} h-full antialiased`}
     >
       <body
-        className="min-h-full font-sans text-ink"
+        className="min-h-full overflow-x-hidden font-sans text-ink"
         style={{ background: "var(--bg)", color: "var(--ink)" }}
       >
         {children}

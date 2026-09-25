@@ -39,32 +39,29 @@ export function FAQ() {
   const [open, setOpen] = useState(0);
 
   return (
-    <section
-      id="faq"
-      className="relative z-10 scroll-mt-24 px-5 pt-24 pb-28 font-[family-name:var(--font-inter-tight)] md:px-8 md:pt-32 md:pb-36 lg:px-12"
-    >
-      <Reveal className="mx-auto max-w-6xl">
-        <div className="flex flex-col gap-10 lg:flex-row lg:gap-16">
-          <h2 className="text-balance text-[24px] font-medium leading-[1.2] tracking-[-0.025em] text-ink md:text-[28px] lg:w-[240px] lg:shrink-0">
+    <section id="faq" className="section-shell relative z-10">
+      <Reveal>
+        <div className="flex flex-col gap-6 md:gap-8 lg:flex-row lg:gap-12">
+          <h2 className="page-title page-title-sm text-balance lg:w-56 lg:shrink-0">
             Frequently asked questions
           </h2>
-          <div className="flex flex-1 flex-col gap-2.5 lg:max-w-[780px]">
+          <div className="flex min-w-0 flex-1 flex-col gap-2">
             {items.map((item, index) => {
               const isOpen = open === index;
               return (
                 <div
                   key={item.q}
-                  className={`faq-pill flex flex-col rounded-2xl px-5 py-4`}
+                  className="faq-pill flex flex-col rounded-[16px] px-4 py-3.5 sm:px-5 sm:py-4"
                 >
                   <button
                     type="button"
-                    className="flex w-full items-center gap-4 text-left text-[16px] leading-[1.45] tracking-[-0.02em] text-ink"
+                    className="group flex w-full items-center gap-4 text-left text-[16px] leading-[1.5] break-words text-ink"
                     aria-expanded={isOpen}
                     onClick={() => setOpen(isOpen ? -1 : index)}
                   >
                     <span className="min-w-0 flex-1 font-medium">{item.q}</span>
                     <span
-                      className="flex size-6 shrink-0 items-center justify-center text-[18px] leading-none text-green"
+                      className="flex size-6 shrink-0 items-center justify-center rounded-[8px] text-[16px] leading-none text-green transition-colors duration-200 group-hover:bg-green-tint group-hover:text-[#7ae0a4]"
                       aria-hidden
                     >
                       {isOpen ? "−" : "+"}
@@ -82,7 +79,7 @@ export function FAQ() {
                         }}
                         className="overflow-hidden"
                       >
-                        <p className="pt-3 pr-8 pb-1 text-[14px] leading-[1.5] tracking-[-0.015em] text-[#8A8F98]">
+                        <p className="pt-3 pr-0 pb-0 text-[14px] leading-[1.5] text-[#8A8F98] sm:pr-8 sm:pt-4">
                           {item.a}
                         </p>
                       </motion.div>

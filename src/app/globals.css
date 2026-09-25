@@ -508,10 +508,11 @@ canvas {
 
 .close-bloom {
   background: radial-gradient(
-    ellipse 58% 70% at 50% 50%,
-    rgb(14 92 52 / 0.36),
-    rgb(28 132 72 / 0.1) 40%,
-    transparent 72%
+    ellipse 78% 90% at 50% 48%,
+    rgb(47 154 92 / 0.42),
+    rgb(28 132 72 / 0.28) 34%,
+    rgb(14 92 52 / 0.1) 58%,
+    transparent 74%
   );
 }
 

@@ -9,7 +9,7 @@ export function Footer() {
         className="relative min-h-[320px] overflow-hidden md:min-h-[400px]"
         style={{
           backgroundImage:
-            "radial-gradient(ellipse 90% 80% at 50% 45%, rgba(47, 154, 92, 0.58) 0%, rgba(28, 132, 72, 0.32) 36%, rgba(14, 92, 52, 0.12) 58%, rgba(0, 0, 0, 0) 74%)",
+            "radial-gradient(ellipse 72% 64% at 50% 45%, rgba(28, 132, 72, 0.22) 0%, rgba(14, 92, 52, 0.1) 42%, rgba(0, 0, 0, 0) 70%)",
         }}
       >
         <LineField className="absolute inset-0 [mask-image:radial-gradient(ellipse_80%_70%_at_50%_50%,black_8%,transparent_70%)]" />

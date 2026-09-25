@@ -1,20 +1,25 @@
 1:"$Sreact.fragment"
 2:I[7121,[],""]
 3:I[4581,[],""]
-4:I[3824,["682","static/chunks/682-0f39c71849884c39.js","785","static/chunks/785-9151a22f23eb1710.js","974","static/chunks/app/page-8734853eb11b8717.js"],"Gone"]
-5:I[484,[],"OutletBoundary"]
-6:"$Sreact.suspense"
-8:I[484,[],"ViewportBoundary"]
-a:I[484,[],"MetadataBoundary"]
-c:I[7123,[],"default",1]
+4:I[3824,["682","static/chunks/682-0f39c71849884c39.js","345","static/chunks/app/not-found-532c847634dc0bea.js"],"Gone"]
+5:I[3806,["682","static/chunks/682-0f39c71849884c39.js","785","static/chunks/785-9151a22f23eb1710.js","974","static/chunks/app/page-f4aef588e1365d5c.js"],"Hero"]
+6:I[5639,["682","static/chunks/682-0f39c71849884c39.js","785","static/chunks/785-9151a22f23eb1710.js","974","static/chunks/app/page-f4aef588e1365d5c.js"],"ProductCards"]
+7:I[3707,["682","static/chunks/682-0f39c71849884c39.js","785","static/chunks/785-9151a22f23eb1710.js","974","static/chunks/app/page-f4aef588e1365d5c.js"],"SectionBridge"]
+8:I[4966,["682","static/chunks/682-0f39c71849884c39.js","785","static/chunks/785-9151a22f23eb1710.js","974","static/chunks/app/page-f4aef588e1365d5c.js"],"FAQ"]
+9:I[2539,["682","static/chunks/682-0f39c71849884c39.js","785","static/chunks/785-9151a22f23eb1710.js","974","static/chunks/app/page-f4aef588e1365d5c.js"],"Footer"]
+a:I[484,[],"OutletBoundary"]
+b:"$Sreact.suspense"
+d:I[484,[],"ViewportBoundary"]
+f:I[484,[],"MetadataBoundary"]
+11:I[7123,[],"default",1]
 :HL["/stack/_next/static/media/103fc5fac08dcb15-s.p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
 :HL["/stack/_next/static/media/22a5144ee8d83bca-s.p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
 :HL["/stack/_next/static/media/26d4368bf94c0ec4-s.p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
 :HL["/stack/_next/static/media/98e207f02528a563-s.p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
 :HL["/stack/_next/static/media/d3ebbfd689654d3a-s.p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
 :HL["/stack/_next/static/css/34581eecf2990a96.css","style"]
-0:{"P":null,"c":["",""],"q":"","i":false,"f":[[["",{"children":["__PAGE__",{},"$undefined","$undefined",4608]},"$undefined","$undefined",4624],[["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/stack/_next/static/css/34581eecf2990a96.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]],["$","html",null,{"lang":"en","className":"__variable_5136b9 __variable_8c0c33 __variable_0b3dae __variable_51a351 h-full antialiased","children":["$","body",null,{"className":"min-h-full font-sans text-ink","style":{"background":"var(--bg)","color":"var(--ink)"},"children":["$","$L2",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L3",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[["$","$L4",null,{}],[]],"forbidden":"$undefined","unauthorized":"$undefined"}]}]}]]}],{"children":[["$","$1","c",{"children":[["$","$L4",null,{}],null,["$","$L5",null,{"children":["$","$6",null,{"name":"Next.MetadataOutlet","children":"$@7"}]}]]}],{},null,false,null]},null,false,null],["$","$1","h",{"children":[null,["$","$L8",null,{"children":"$L9"}],["$","div",null,{"hidden":true,"children":["$","$La",null,{"children":["$","$6",null,{"name":"Next.Metadata","children":"$Lb"}]}]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}],false]],"m":"$undefined","G":["$c",[]],"S":true,"h":null,"r":"$undefined","s":"$undefined","a":"$undefined","l":"$undefined","p":"$undefined","d":"$undefined","b":"m5hiRCFS-c-ii7kBwCsDl"}
-9:[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]
-d:I[6869,[],"IconMark"]
-7:null
-b:[["$","title","0",{"children":"Stack — Funding that grows with your sales"}],["$","meta","1",{"name":"description","content":"Working capital for noon sellers in the UAE, based on your sales. No applications, no fixed bill."}],["$","link","2",{"rel":"icon","href":"/stack/favicon.ico?603d046c9a6fdfbb","type":"image/x-icon","sizes":"16x16"}],["$","$Ld","3",{}]]
+0:{"P":null,"c":["",""],"q":"","i":false,"f":[[["",{"children":["__PAGE__",{},"$undefined","$undefined",4608]},"$undefined","$undefined",4624],[["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/stack/_next/static/css/34581eecf2990a96.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]],["$","html",null,{"lang":"en","className":"__variable_5136b9 __variable_8c0c33 __variable_0b3dae __variable_51a351 h-full antialiased","children":["$","body",null,{"className":"min-h-full font-sans text-ink","style":{"background":"var(--bg)","color":"var(--ink)"},"children":["$","$L2",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L3",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[["$","$L4",null,{}],[]],"forbidden":"$undefined","unauthorized":"$undefined"}]}]}]]}],{"children":[["$","$1","c",{"children":[["$","div",null,{"id":"top","style":{"background":"var(--bg)"},"children":[["$","header",null,{"className":"fixed inset-x-0 top-0 z-50 border-b border-white/[0.06] backdrop-blur-xl backdrop-saturate-150","style":{"background":"rgb(255 255 255 / 0.055)","boxShadow":"0 16px 36px rgb(0 0 0 / 0.38)"},"children":["$","div",null,{"className":"flex h-11 items-center px-5 md:h-12 md:px-8 lg:px-10","children":["$","a",null,{"href":"#top","className":"flex items-center gap-2.5 text-ink","aria-label":"stack","children":[["$","svg",null,{"viewBox":"0 0 56 32","className":"h-3.5 w-5","fill":"currentColor","aria-hidden":true,"children":[["$","polygon",null,{"points":"0,6 22,6 28,14 0,14"}],["$","polygon",null,{"points":"34,6 56,6 56,14 28,14"}],["$","polygon",null,{"points":"0,18 28,18 22,26 0,26"}],["$","polygon",null,{"points":"28,18 56,18 56,26 34,26"}]]}],["$","span",null,{"className":"text-[14px] font-medium tracking-[-0.02em]","children":"stack"}]]}]}]}],["$","main",null,{"children":[["$","$L5",null,{}],["$","$L6",null,{}],["$","$L7",null,{}],["$","$L8",null,{}]]}],["$","$L9",null,{}]]}],null,["$","$La",null,{"children":["$","$b",null,{"name":"Next.MetadataOutlet","children":"$@c"}]}]]}],{},null,false,null]},null,false,null],["$","$1","h",{"children":[null,["$","$Ld",null,{"children":"$Le"}],["$","div",null,{"hidden":true,"children":["$","$Lf",null,{"children":["$","$b",null,{"name":"Next.Metadata","children":"$L10"}]}]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}],false]],"m":"$undefined","G":["$11",[]],"S":true,"h":null,"r":"$undefined","s":"$undefined","a":"$undefined","l":"$undefined","p":"$undefined","d":"$undefined","b":"tdNajD5ocpjUfFhdtU2iK"}
+e:[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]
+12:I[6869,[],"IconMark"]
+c:null
+10:[["$","title","0",{"children":"Stack — Funding that grows with your sales"}],["$","meta","1",{"name":"description","content":"Working capital for noon sellers in the UAE, based on your sales. No applications, no fixed bill."}],["$","link","2",{"rel":"icon","href":"/stack/favicon.ico?603d046c9a6fdfbb","type":"image/x-icon","sizes":"16x16"}],["$","$L12","3",{}]]

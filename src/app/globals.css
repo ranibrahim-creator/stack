@@ -237,6 +237,20 @@ canvas {
     0 0 0 1px rgb(28 132 72 / 0.07);
 }
 
+.stages-card {
+  background:
+    radial-gradient(
+      ellipse 80% 95% at 82% 8%,
+      rgb(28 132 72 / 0.28),
+      rgb(14 92 52 / 0.12) 40%,
+      transparent 68%
+    ),
+    rgb(255 255 255 / 0.035);
+  box-shadow:
+    0 16px 36px rgb(0 0 0 / 0.32),
+    0 0 0 1px rgb(28 132 72 / 0.12);
+}
+
 .fig-inv-layer {
   animation: fig-inv-lift 6.2s cubic-bezier(0.45, 0, 0.15, 1) infinite;
 }

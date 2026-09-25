@@ -26,7 +26,7 @@ export function ConnectedLayers() {
   return (
     <section id="layers" className="section-shell">
       <Reveal>
-        <div className="glass-card-mint relative overflow-hidden rounded-[12px] px-8 py-10 sm:px-10 md:px-14 md:py-14">
+        <div className="glass-card-mint stages-card relative overflow-hidden rounded-[12px] px-8 py-10 sm:px-10 md:px-14 md:py-14">
           <SectionTitle
             emphasize="none"
             line1="One platform."

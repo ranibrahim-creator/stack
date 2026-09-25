@@ -8,9 +8,9 @@ import { ProductCards } from "@/components/ProductCards";
 
 export default function Home() {
   return (
-    <div id="top" className="pt-12" style={{ background: "var(--bg)" }}>
+    <div id="top" className="relative overflow-x-hidden pt-12" style={{ background: "var(--bg)" }}>
       <Header />
-      <main>
+      <main className="relative z-10">
         <Hero />
         <ProductCards />
         <ConnectedLayers />

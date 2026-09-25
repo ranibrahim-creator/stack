@@ -125,7 +125,7 @@ export function ProductCards() {
   return (
     <section id="products" className="section-shell">
       <Reveal>
-        <SectionTitle line1="Why choose" line2="Stack" />
+        <SectionTitle emphasize="none" line1="Why choose" line2="Stack" />
       </Reveal>
       <div className="mt-6 grid grid-cols-1 gap-0 sm:grid-cols-2 lg:mt-8 lg:grid-cols-3">
         {figures.map((item, index) => (

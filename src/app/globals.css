@@ -109,7 +109,7 @@ canvas {
   }
 
   .section-shell {
-    padding-block: 5rem;
+    padding-block: 6rem;
   }
 }
 
@@ -132,6 +132,15 @@ canvas {
 .hero-commerce-dot {
   color: #7ae0a4;
   text-shadow: 0 0 12px rgb(122 224 164 / 0.55);
+}
+
+.hero-commerce {
+  font-weight: 600;
+  background-image: linear-gradient(120deg, #2f9a5c 0%, #0e5c34 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  filter: drop-shadow(0 0 14px rgb(28 132 72 / 0.35));
 }
 
 .raycast-pill {
@@ -464,13 +473,126 @@ canvas {
   }
 }
 
-.hero-field {
-  background-image: radial-gradient(
-    circle,
-    rgb(255 255 255 / 0.08) 0.7px,
-    transparent 0.85px
+.chrome-bloom,
+.hero-bloom {
+  background: radial-gradient(
+    ellipse 70% 120% at 88% 50%,
+    rgb(14 92 52 / 0.28),
+    rgb(28 132 72 / 0.08) 42%,
+    transparent 72%
   );
-  background-size: 20px 20px;
+}
+
+.hero-bloom {
+  background: radial-gradient(
+    ellipse 52% 78% at 74% 46%,
+    rgb(14 92 52 / 0.32),
+    rgb(28 132 72 / 0.1) 38%,
+    transparent 70%
+  );
+}
+
+.close-bloom {
+  background: radial-gradient(
+    ellipse 58% 70% at 50% 50%,
+    rgb(14 92 52 / 0.36),
+    rgb(28 132 72 / 0.1) 40%,
+    transparent 72%
+  );
+}
+
+.line-field {
+  pointer-events: none;
+  overflow: hidden;
+  background-image: repeating-linear-gradient(
+    to right,
+    transparent,
+    transparent 71px,
+    rgb(255 255 255 / 0.028) 71px,
+    rgb(255 255 255 / 0.028) 72px
+  );
+}
+
+.line-h,
+.line-v {
+  position: absolute;
+  background: rgb(255 255 255 / 0.075);
+}
+
+.line-h {
+  left: -18%;
+  width: 136%;
+  height: 1px;
+}
+
+.line-v {
+  top: -22%;
+  height: 144%;
+  width: 1px;
+}
+
+.line-h-run::after,
+.line-h-run-late::after,
+.line-v-run::after {
+  content: "";
+  position: absolute;
+  background: #1c8448;
+  box-shadow: 0 0 10px rgb(28 132 72 / 0.45);
+}
+
+.line-h-run::after,
+.line-h-run-late::after {
+  top: 0;
+  left: 0;
+  width: 14%;
+  height: 1px;
+  animation: line-run-x 16s linear infinite;
+}
+
+.line-h-run-late::after {
+  animation-delay: 7s;
+}
+
+.line-v-run::after {
+  top: 0;
+  left: 0;
+  width: 1px;
+  height: 12%;
+  animation: line-run-y 18s linear infinite;
+}
+
+@keyframes line-run-x {
+  0% {
+    transform: translateX(-20%);
+    opacity: 0;
+  }
+  7% {
+    opacity: 1;
+  }
+  93% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(780%);
+    opacity: 0;
+  }
+}
+
+@keyframes line-run-y {
+  0% {
+    transform: translateY(-20%);
+    opacity: 0;
+  }
+  7% {
+    opacity: 1;
+  }
+  93% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(820%);
+    opacity: 0;
+  }
 }
 
 .circuit-grid {
@@ -591,6 +713,9 @@ canvas {
   .eco-heartbeat,
   .eco-floater,
   .eco-success-chip,
+  .line-h-run::after,
+  .line-h-run-late::after,
+  .line-v-run::after,
   .eco-marquee {
     animation: none;
   }

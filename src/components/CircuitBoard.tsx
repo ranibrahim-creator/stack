@@ -18,6 +18,24 @@ export type CircuitConnection = {
   animated?: boolean;
 };
 
+function shorten(
+  from: { x: number; y: number },
+  to: { x: number; y: number },
+  startPad: number,
+  endPad: number,
+) {
+  const dx = to.x - from.x;
+  const dy = to.y - from.y;
+  const len = Math.hypot(dx, dy);
+  if (len === 0) return { from, to };
+  const ux = dx / len;
+  const uy = dy / len;
+  return {
+    from: { x: from.x + ux * startPad, y: from.y + uy * startPad },
+    to: { x: to.x - ux * endPad, y: to.y - uy * endPad },
+  };
+}
+
 function tracePath(
   from: { x: number; y: number },
   to: { x: number; y: number },
@@ -108,14 +126,14 @@ export function CircuitBoard({
 
   return (
     <div
-      className={`glass-card-mint relative overflow-hidden rounded-[12px] px-2 py-4 sm:px-4 ${className}`}
+      className={`glass-card-mint relative overflow-hidden rounded-[12px] ${className}`}
       style={{ aspectRatio: `${width} / ${height}` }}
     >
       {showGrid ? <div className="circuit-grid absolute inset-0 opacity-50" /> : null}
 
       <svg
         viewBox={`0 0 ${width} ${height}`}
-        className="relative h-auto w-full"
+        className="absolute inset-0 h-full w-full"
         fill="none"
         aria-hidden
       >
@@ -123,8 +141,9 @@ export function CircuitBoard({
           const from = byId[link.from];
           const to = byId[link.to];
           if (!from || !to) return null;
-          const d = tracePath(from, to);
-          const corner = cornerOf(from, to);
+          const trimmed = shorten(from, to, 26, 22);
+          const d = tracePath(trimmed.from, trimmed.to);
+          const corner = cornerOf(trimmed.from, trimmed.to);
           return (
             <g key={`${link.from}-${link.to}`}>
               <path
@@ -146,7 +165,7 @@ export function CircuitBoard({
               ) : null}
               {link.animated ? (
                 <Pulse
-                  d={reverseTracePath(from, to)}
+                  d={reverseTracePath(trimmed.from, trimmed.to)}
                   delay={index * 0.2}
                   travel={pulseSpeed}
                 />
@@ -159,14 +178,16 @@ export function CircuitBoard({
       {nodes.map((node) => (
         <div
           key={node.id}
-          className="absolute flex -translate-x-1/2 -translate-y-1/2 flex-col items-center gap-2"
+          className="pointer-events-none absolute"
           style={{
             left: `${(node.x / width) * 100}%`,
             top: `${(node.y / height) * 100}%`,
           }}
         >
-          {node.icon}
-          <span className="max-w-24 text-center font-[family-name:var(--font-plex-mono)] text-[10px] leading-[1.3] text-[#8A8F98] sm:max-w-none sm:text-[11px] md:whitespace-nowrap md:text-[12px]">
+          <div className="flex -translate-x-1/2 -translate-y-1/2 flex-col items-center">
+            {node.icon}
+          </div>
+          <span className="absolute top-[18px] left-1/2 w-max -translate-x-1/2 text-center font-[family-name:var(--font-plex-mono)] text-[10px] leading-[1.3] text-[#8A8F98] sm:text-[11px] md:text-[12px]">
             {node.label}
           </span>
         </div>

@@ -86,18 +86,18 @@ function PayoutFig() {
 const ticker = [
   "3+ financing cycles per seller, on average",
   "Built for repeat use",
-  "Stack. Built into noon.",
-  "Repaid as you sell",
-  "Built by noon. Embedded into noon.",
+  "Assessed from activity already on noon",
+  "One payout rail for sales and repayment",
 ];
 
 export function Ecosystem() {
   return (
-    <section id="ecosystem" className="scroll-mt-[4.5rem] py-12 md:py-16 lg:py-20">
-      <div className="page-wrap grid items-start gap-6 md:grid-cols-2 md:gap-8 lg:gap-12">
+    <section id="ecosystem" className="section-shell">
+      <div className="grid items-center gap-6 md:grid-cols-2 md:gap-8 lg:gap-12">
         <Reveal className="min-w-0 md:pt-2">
           <SectionTitle
             className="max-w-[20ch]"
+            emphasize="start"
             line1="Stack."
             line2="Built into noon."
           />
@@ -117,13 +117,13 @@ export function Ecosystem() {
               {
                 id: "lab",
                 x: 250,
-                y: 48,
+                y: 58,
                 label: "Seller Lab",
                 icon: <LabFig />,
               },
               {
                 id: "fulfil",
-                x: 80,
+                x: 78,
                 y: 150,
                 label: "noon fulfilment",
                 icon: <FulfilmentFig />,
@@ -131,7 +131,7 @@ export function Ecosystem() {
               { id: "stack", x: 250, y: 150, label: "Stack", icon: <StackFig /> },
               {
                 id: "pay",
-                x: 420,
+                x: 422,
                 y: 150,
                 label: "Seller payouts",
                 icon: <PayoutFig />,
@@ -139,7 +139,7 @@ export function Ecosystem() {
               {
                 id: "data",
                 x: 250,
-                y: 252,
+                y: 232,
                 label: "Commerce data",
                 icon: <DataFig />,
               },
@@ -154,7 +154,7 @@ export function Ecosystem() {
         </Reveal>
       </div>
 
-      <Reveal delay={0.1} className="page-wrap mt-10 md:mt-16">
+      <Reveal delay={0.1} className="mt-10 md:mt-16">
         <div className="glass-card-green overflow-hidden rounded-[12px] px-4 py-3 md:px-5">
           <div className="eco-marquee flex w-max items-center gap-8 pr-8">
             {[0, 1].map((copy) => (

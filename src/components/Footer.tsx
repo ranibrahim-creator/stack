@@ -1,15 +1,22 @@
+import { LineField } from "./LineField";
 import { Logo } from "./Logo";
 
 export function Footer() {
   return (
     <div className="font-[family-name:var(--font-inter-tight)]">
-      <section
-        id="close"
-        className="section-shell flex flex-col items-center text-center !py-16 md:!py-24 lg:!py-32"
-      >
-        <p className="page-title page-title-md max-w-2xl">
-          Built for the future. Available today.
-        </p>
+      <section id="close" className="relative overflow-hidden">
+        <div className="close-bloom pointer-events-none absolute inset-0" aria-hidden />
+        <LineField className="absolute inset-0 [mask-image:radial-gradient(ellipse_80%_70%_at_50%_50%,black_8%,transparent_70%)]" />
+        <div className="section-shell relative flex flex-col items-center text-center">
+          <p className="page-title page-title-md max-w-2xl">
+            <span className="font-semibold tracking-[-0.05em] text-white">
+              Built by noon.
+            </span>{" "}
+            <span className="font-normal text-[#8A8F98]">
+              Embedded into noon.
+            </span>
+          </p>
+        </div>
       </section>
 
       <footer id="contact" className="section-shell border-t border-white/[0.06]">

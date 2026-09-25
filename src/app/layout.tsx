@@ -29,13 +29,25 @@ export const viewport = {
   initialScale: 1,
 };
 
-export const metadata: Metadata = {
-  title: "Stack — Funding that grows with your sales",
-  description:
-    "Working capital for noon sellers in the UAE, based on your sales. No applications, no fixed bill.",
-};
+const isPages = process.env.GITHUB_PAGES === "1";
+
+export const metadata: Metadata = isPages
+  ? { title: "404 Not Found" }
+  : {
+      title: "Stack — Funding that grows with your sales",
+      description:
+        "Working capital for noon sellers in the UAE, based on your sales. No applications, no fixed bill.",
+    };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
+  if (isPages) {
+    return (
+      <html lang="en">
+        <body>{children}</body>
+      </html>
+    );
+  }
+
   return (
     <html
       lang="en"

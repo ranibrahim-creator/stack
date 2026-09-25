@@ -4,10 +4,16 @@ import { Logo } from "./Logo";
 export function Footer() {
   return (
     <div className="font-[family-name:var(--font-inter-tight)]">
-      <section id="close" className="relative min-h-[280px] overflow-hidden md:min-h-[340px]">
-        <div className="close-bloom pointer-events-none absolute inset-0" aria-hidden />
+      <section
+        id="close"
+        className="relative min-h-[320px] overflow-hidden md:min-h-[400px]"
+        style={{
+          backgroundImage:
+            "radial-gradient(ellipse 90% 80% at 50% 45%, rgba(47, 154, 92, 0.58) 0%, rgba(28, 132, 72, 0.32) 36%, rgba(14, 92, 52, 0.12) 58%, rgba(0, 0, 0, 0) 74%)",
+        }}
+      >
         <LineField className="absolute inset-0 [mask-image:radial-gradient(ellipse_80%_70%_at_50%_50%,black_8%,transparent_70%)]" />
-        <div className="section-shell relative flex min-h-[280px] flex-col items-center justify-center text-center md:min-h-[340px]">
+        <div className="section-shell relative flex min-h-[320px] flex-col items-center justify-center text-center md:min-h-[400px]">
           <p className="page-title page-title-md max-w-2xl">
             <span className="font-semibold tracking-[-0.05em] text-white">
               Built by noon.

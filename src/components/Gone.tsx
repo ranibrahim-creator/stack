@@ -6,7 +6,7 @@ import { NumberLanes } from "./NumberLanes";
 
 const ease = [0.16, 1, 0.3, 1] as const;
 
-const lines = [["Stack", "is", "still", "in", "progress."]];
+const lines = [["This", "page", "isn't", "available."]];
 
 export function Gone() {
   return (
@@ -26,7 +26,7 @@ export function Gone() {
           transition={{ duration: 0.6, delay: 0.1 }}
           className="font-[family-name:var(--font-plex-mono)] text-[11px] tracking-[0.08em] text-[#5c6166]"
         >
-          WIP 0.1
+          404
         </motion.p>
 
         <h1 className="mt-5 max-w-[780px] text-[34px] font-normal leading-[1.12] tracking-[-0.038em] text-ink sm:text-[44px] lg:text-[52px]">

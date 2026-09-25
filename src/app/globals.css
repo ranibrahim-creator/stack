@@ -150,6 +150,50 @@ body {
   }
 }
 
+.fig-stage {
+  transition:
+    background 0.45s ease,
+    box-shadow 0.45s ease;
+}
+
+.fig-stage:hover {
+  background: rgb(28 132 72 / 0.055);
+  box-shadow: inset 0 0 0 1px rgb(28 132 72 / 0.12);
+}
+
+.fig-stage:hover .fig-visual {
+  filter: drop-shadow(0 0 22px rgb(28 132 72 / 0.22));
+}
+
+.fig-visual {
+  transition: filter 0.45s ease;
+}
+
+.fig-sig-line {
+  stroke-dasharray: 140;
+  animation: fig-draw 7.5s cubic-bezier(0.45, 0, 0.15, 1) infinite;
+}
+
+.fig-sig-core {
+  animation: fig-core 3.4s ease-in-out infinite;
+  transform-box: fill-box;
+  transform-origin: 50% 50%;
+}
+
+.fig-flow-line {
+  stroke-dasharray: 5 7;
+  animation: fig-dash 10s linear infinite;
+}
+
+.fig-flow-loop {
+  stroke-dasharray: 12 10;
+  animation: fig-dash 14s linear infinite reverse;
+}
+
+.fig-lab-lid {
+  animation: fig-lab 5.6s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
 .fig-sale-bar {
   transform-box: fill-box;
   transform-origin: 50% 100%;
@@ -175,6 +219,50 @@ body {
   }
 }
 
+@keyframes fig-draw {
+  0% {
+    stroke-dashoffset: 140;
+    opacity: 0.25;
+  }
+  28%,
+  62% {
+    stroke-dashoffset: 0;
+    opacity: 0.85;
+  }
+  100% {
+    stroke-dashoffset: -140;
+    opacity: 0.25;
+  }
+}
+
+@keyframes fig-core {
+  0%,
+  100% {
+    filter: drop-shadow(0 0 0 rgb(28 132 72 / 0));
+  }
+  50% {
+    filter: drop-shadow(0 0 10px rgb(122 224 164 / 0.55));
+  }
+}
+
+@keyframes fig-dash {
+  to {
+    stroke-dashoffset: -120;
+  }
+}
+
+@keyframes fig-lab {
+  0%,
+  22%,
+  100% {
+    transform: translate(0, 0);
+  }
+  48%,
+  64% {
+    transform: translate(0, -7px);
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
@@ -184,7 +272,12 @@ body {
   .raycast-pill::before,
   .fig-inv-layer,
   .fig-pay-slice,
-  .fig-sale-bar {
+  .fig-sale-bar,
+  .fig-sig-line,
+  .fig-sig-core,
+  .fig-flow-line,
+  .fig-flow-loop,
+  .fig-lab-lid {
     animation: none;
   }
 

@@ -31,7 +31,7 @@ const items = [
   },
   {
     q: "Does Stack work with financial institutions?",
-    a: "Yes. Stack’s technology and embedded infrastructure can support financing programs with banks and other financial institutions.",
+    a: "Yes — Stack’s embedded infrastructure and access to real-time commerce data can support financing programs with banks and other financial institutions. Get in touch to discuss what a partnership could look like.",
   },
 ];
 

@@ -21,6 +21,12 @@ export function Footer() {
         <a href="mailto:stack@noon.com" className="raycast-pill mt-6">
           <span className="raycast-pill-label">stack@noon.com</span>
         </a>
+        <p className="mt-5 text-[13px] leading-relaxed text-[#8A8F98]">
+          For financial institutions: partnership enquiries →{" "}
+          <a href="mailto:stack@noon.com" className="text-green hover:text-ink">
+            stack@noon.com
+          </a>
+        </p>
       </div>
     </footer>
   );

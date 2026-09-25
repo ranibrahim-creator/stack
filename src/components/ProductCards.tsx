@@ -6,26 +6,27 @@ import { Reveal } from "./ui/Reveal";
 const FIG = { w: 280, h: 260, s: 1.5 };
 
 function DataFigure() {
-  const ox = 100;
-  const oy = 172;
+  const ox = 72;
+  const oy = 176;
   const s = FIG.s;
-  const heights = [20, 32, 24, 46, 36, 52, 40];
-  const pitch = 10;
+  const heights = [16, 26, 20, 36, 30, 44];
+  const pitch = 13;
 
   return (
     <svg viewBox={`0 0 ${FIG.w} ${FIG.h}`} className="size-[200px]" fill="none" aria-hidden>
       {heights.map((height, i) => (
-        <g key={i} className="fig-sale-bar" style={{ ["--i" as string]: i }}>
+        <g key={i} className="fig-data-bar" style={{ ["--i" as string]: i }}>
           <IsoBox
             x={i * pitch}
             y={0}
             z={0}
             w={8}
             h={height}
-            d={20}
+            d={16}
             ox={ox}
             oy={oy}
             s={s}
+            stroke={height >= 36 ? "#7ae0a4" : "#D0D6E0"}
           />
         </g>
       ))}
@@ -35,54 +36,63 @@ function DataFigure() {
 
 function InventoryFigure() {
   const ox = 140;
-  const oy = 172;
+  const oy = 176;
   const s = FIG.s;
   const w = 50;
   const d = 50;
   const h = 6;
   const gap = 2.2;
   const layers = 5;
-  const topY = (layers - 1) * (h + gap) + h;
-  const cx = ox + (w / 2 - d / 2) * 0.866 * s;
-  const cy = oy + (w / 2 + d / 2) * 0.5 * s - topY * s;
 
   return (
     <svg viewBox={`0 0 ${FIG.w} ${FIG.h}`} className="size-[200px]" fill="none" aria-hidden>
-      {Array.from({ length: layers }, (_, i) => (
-        <g key={i} className="fig-inv-layer" style={{ ["--i" as string]: i }}>
-          <IsoBox x={0} y={i * (h + gap)} z={0} w={w} h={h} d={d} ox={ox} oy={oy} s={s} />
-          {i === layers - 1 ? (
-            <>
-              <ellipse cx={cx} cy={cy} rx={14} ry={8} stroke="#D0D6E0" strokeWidth="0.7" />
-              <ellipse cx={cx} cy={cy} rx={8} ry={4.6} stroke="#D0D6E0" strokeWidth="0.7" />
-            </>
-          ) : null}
-        </g>
-      ))}
+      {Array.from({ length: layers }, (_, i) => {
+        const capital = i === 2;
+        return (
+          <g
+            key={i}
+            className="fig-inv-layer"
+            style={{ ["--i" as string]: i }}
+          >
+            <IsoBox
+              x={0}
+              y={i * (h + gap)}
+              z={0}
+              w={w}
+              h={h}
+              d={d}
+              ox={ox}
+              oy={oy}
+              s={s}
+              stroke={capital ? "#7ae0a4" : "#D0D6E0"}
+            />
+          </g>
+        );
+      })}
     </svg>
   );
 }
 
 function RepaymentFigure() {
-  const ox = 122;
-  const oy = 172;
+  const ox = 86;
+  const oy = 168;
   const s = FIG.s;
 
   return (
     <svg viewBox={`0 0 ${FIG.w} ${FIG.h}`} className="size-[200px]" fill="none" aria-hidden>
-      <IsoBox x={0} y={0} z={0} w={42} h={36} d={42} ox={ox} oy={oy} s={s} />
-      <g className="fig-pay-slice">
+      <IsoBox x={0} y={0} z={0} w={40} h={16} d={28} ox={ox} oy={oy} s={s} />
+      <g className="fig-pay-share">
         <IsoBox
-          x={42}
+          x={41}
           y={0}
           z={0}
-          w={9}
-          h={36}
-          d={42}
+          w={7}
+          h={16}
+          d={28}
           ox={ox}
           oy={oy}
           s={s}
-          stroke="#C5CBD3"
+          stroke="#7ae0a4"
         />
       </g>
     </svg>

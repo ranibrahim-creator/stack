@@ -13,11 +13,11 @@ export function Header() {
         <a
           href="#top"
           className="flex items-center gap-2.5 text-ink"
-          aria-label="stack"
+          aria-label="stack by noon"
         >
           <Logo className="h-3.5 w-5" />
           <span className="text-[14px] font-medium tracking-[-0.02em]">
-            stack
+            stack by noon
           </span>
         </a>
       </div>

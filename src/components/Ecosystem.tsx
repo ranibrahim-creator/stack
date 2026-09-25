@@ -1,90 +1,83 @@
 "use client";
 
+import { CircuitBoard } from "./CircuitBoard";
 import { IsoBox } from "./iso";
 import { Reveal } from "./ui/Reveal";
 
-function LabFigure() {
+function StackFig() {
   return (
-    <svg viewBox="0 0 200 160" className="h-[132px] w-[164px]" fill="none" aria-hidden>
-      <IsoBox x={0} y={8} z={0} w={36} h={28} d={28} ox={92} oy={118} s={1.35} />
-      <g className="fig-lab-lid">
-        <IsoBox x={10} y={38} z={6} w={16} h={4} d={16} ox={92} oy={118} s={1.35} />
-      </g>
+    <svg viewBox="0 0 64 52" className="h-12 w-14" fill="none" aria-hidden>
+      <IsoBox x={0} y={0} z={0} w={18} h={4} d={18} ox={32} oy={44} s={1.15} stroke="#7ae0a4" />
+      <IsoBox x={0} y={6} z={0} w={18} h={4} d={18} ox={32} oy={44} s={1.15} stroke="#7ae0a4" />
+      <IsoBox x={0} y={12} z={0} w={18} h={4} d={18} ox={32} oy={44} s={1.15} stroke="#7ae0a4" />
     </svg>
   );
 }
 
-function FulfilmentFigure() {
+function FulfilmentFig() {
   return (
-    <svg viewBox="0 0 200 160" className="h-[132px] w-[164px]" fill="none" aria-hidden>
-      {[0, 1, 2, 3].map((i) => (
-        <g key={i} className="fig-inv-layer" style={{ ["--i" as string]: i }}>
-          <IsoBox x={0} y={i * 7.8} z={0} w={42} h={5} d={42} ox={100} oy={118} s={1.25} />
-        </g>
+    <svg viewBox="0 0 64 52" className="h-12 w-14" fill="none" aria-hidden>
+      <IsoBox x={0} y={0} z={0} w={13} h={18} d={15} ox={20} oy={44} s={1.05} />
+      <IsoBox x={3} y={0} z={15} w={7} h={7} d={3} ox={20} oy={44} s={1.05} />
+      <IsoBox x={16} y={0} z={3} w={11} h={2} d={11} ox={20} oy={44} s={1.05} />
+      <IsoBox x={17} y={3} z={4} w={9} h={3.2} d={9} ox={20} oy={44} s={1.05} />
+      <IsoBox x={17} y={7.2} z={4} w={9} h={3.2} d={9} ox={20} oy={44} s={1.05} />
+    </svg>
+  );
+}
+
+function DataFig() {
+  const heights = [9, 16, 12, 21, 14];
+  return (
+    <svg viewBox="0 0 64 52" className="h-12 w-14" fill="none" aria-hidden>
+      {heights.map((h, i) => (
+        <IsoBox
+          key={i}
+          x={i * 6.2}
+          y={0}
+          z={0}
+          w={4.5}
+          h={h}
+          d={11}
+          ox={14}
+          oy={44}
+          s={1.05}
+        />
       ))}
     </svg>
   );
 }
 
-function DataFigure() {
-  const heights = [16, 26, 20, 36, 28];
+function PayoutFig() {
   return (
-    <svg viewBox="0 0 200 160" className="h-[132px] w-[164px]" fill="none" aria-hidden>
-      {heights.map((height, i) => (
-        <g key={i} className="fig-sale-bar" style={{ ["--i" as string]: i }}>
-          <IsoBox
-            x={i * 9}
-            y={0}
-            z={0}
-            w={7}
-            h={height}
-            d={16}
-            ox={78}
-            oy={122}
-            s={1.25}
-          />
-        </g>
+    <svg viewBox="0 0 64 52" className="h-12 w-14" fill="none" aria-hidden>
+      <IsoBox x={0} y={0} z={0} w={20} h={7} d={13} ox={22} oy={40} s={1.05} />
+      <IsoBox x={2} y={9} z={2} w={16} h={2} d={9} ox={22} oy={40} s={1.05} />
+      {[0, 1, 2].map((i) => (
+        <IsoBox
+          key={i}
+          x={22}
+          y={i * 2.6}
+          z={4}
+          w={8}
+          h={2}
+          d={8}
+          ox={22}
+          oy={40}
+          s={1.05}
+          stroke={i === 2 ? "#7ae0a4" : "#D0D6E0"}
+        />
       ))}
     </svg>
   );
 }
 
-function PayoutFigure() {
-  return (
-    <svg viewBox="0 0 200 160" className="h-[132px] w-[164px]" fill="none" aria-hidden>
-      <IsoBox x={0} y={0} z={0} w={34} h={22} d={22} ox={88} oy={118} s={1.3} />
-      <g className="fig-pay-slice">
-        <IsoBox x={36} y={0} z={2} w={8} h={22} d={18} ox={88} oy={118} s={1.3} stroke="#C5CBD3" />
-      </g>
-    </svg>
-  );
-}
-
-const items = [
-  {
-    id: "FIG 0.1",
-    title: "Seller Lab",
-    body: "Distribution and seller experience",
-    Figure: LabFigure,
-  },
-  {
-    id: "FIG 0.2",
-    title: "noon fulfilment",
-    body: "Inventory visibility and control",
-    Figure: FulfilmentFigure,
-  },
-  {
-    id: "FIG 0.3",
-    title: "Commerce data",
-    body: "Pre-qualification and financing decisions",
-    Figure: DataFigure,
-  },
-  {
-    id: "FIG 0.4",
-    title: "Seller payouts",
-    body: "Revenue-based collections",
-    Figure: PayoutFigure,
-  },
+const ticker = [
+  "3+ financing cycles per seller, on average",
+  "Built for repeat use",
+  "Same infrastructure. New capability.",
+  "Repaid as you sell",
+  "Built by noon. Embedded into noon.",
 ];
 
 export function Ecosystem() {
@@ -93,47 +86,80 @@ export function Ecosystem() {
       id="ecosystem"
       className="scroll-mt-24 px-5 pt-24 font-[family-name:var(--font-inter-tight)] md:px-8 md:pt-32 lg:px-12"
     >
-      <Reveal>
-        <p className="max-w-[860px] text-[28px] font-normal leading-[1.12] tracking-[-0.038em] text-[#8A8F98] sm:text-[32px] lg:text-[36px]">
-          <span className="text-ink">
-            Stack isn’t a financing product sitting outside the commerce
-            experience.{" "}
-          </span>
-          It’s built around infrastructure that already exists within noon.
-        </p>
-      </Reveal>
+      <div className="grid items-center gap-12 md:grid-cols-[minmax(0,1fr)_minmax(0,440px)] lg:gap-16">
+        <Reveal className="min-w-0">
+          <h2 className="max-w-[640px] leading-[1.05] tracking-[-0.038em]">
+            <span className="block text-[22px] font-medium text-[#C8CBC4] sm:text-[24px] lg:text-[26px]">
+              Same infrastructure.
+            </span>
+            <span className="block text-[36px] font-semibold text-white sm:text-[44px] lg:text-[52px]">
+              New capability.
+            </span>
+          </h2>
+          <p className="mt-3 max-w-[38rem] text-[14px] leading-[1.5] tracking-[-0.018em] text-[#8A8F98]">
+            Seller Lab, fulfilment, commerce data, and weekly payouts — now
+            powering financing too.
+          </p>
+        </Reveal>
 
-      <div className="mt-16 grid grid-cols-2 lg:mt-20 lg:grid-cols-4">
-        {items.map((item, index) => (
-          <Reveal
-            key={item.id}
-            delay={index * 0.06}
-            className={`fig-stage flex min-w-0 flex-col px-4 py-6 md:px-6 ${
-              index % 2 === 1 ? "border-l border-[#1a1a1a]" : ""
-            } ${index > 1 ? "border-t border-[#1a1a1a] lg:border-t-0" : ""} ${
-              index > 0 ? "lg:border-l" : "lg:border-l-0"
-            }`}
-          >
-            <p className="font-[family-name:var(--font-plex-mono)] text-[11px] tracking-[0.08em] text-[#5c6166]">
-              {item.id}
-            </p>
-            <div className="fig-visual flex h-[160px] items-center justify-center">
-              <item.Figure />
-            </div>
-            <h3 className="text-[15px] font-medium tracking-[-0.025em] text-ink">
-              {item.title}
-            </h3>
-            <p className="mt-2 text-[13px] leading-[1.45] tracking-[-0.018em] text-[#8A8F98]">
-              {item.body}
-            </p>
-          </Reveal>
-        ))}
+        <Reveal delay={0.06} className="min-w-0">
+          <CircuitBoard
+            width={500}
+            height={300}
+            pulseSpeed={2}
+            nodes={[
+              { id: "stack", x: 80, y: 150, label: "Stack", icon: <StackFig /> },
+              {
+                id: "fulfil",
+                x: 250,
+                y: 52,
+                label: "noon fulfilment",
+                icon: <FulfilmentFig />,
+              },
+              {
+                id: "data",
+                x: 250,
+                y: 248,
+                label: "Commerce data",
+                icon: <DataFig />,
+              },
+              {
+                id: "pay",
+                x: 420,
+                y: 150,
+                label: "Seller payouts",
+                icon: <PayoutFig />,
+              },
+            ]}
+            connections={[
+              { from: "stack", to: "fulfil", animated: true },
+              { from: "stack", to: "data", animated: true },
+              { from: "fulfil", to: "pay", animated: true },
+              { from: "data", to: "pay", animated: true },
+            ]}
+          />
+        </Reveal>
       </div>
 
-      <p className="mt-12 max-w-[640px] text-[15px] leading-[1.45] tracking-[-0.02em] text-[#8A8F98] md:mt-14">
-        Stack connects these capabilities into a single embedded financing
-        platform.
-      </p>
+      <Reveal delay={0.1} className="mt-10 md:mt-12">
+        <div className="glass-card-green overflow-hidden rounded-full py-3">
+          <div className="eco-marquee flex w-max items-center gap-8 pr-8">
+            {[0, 1].map((copy) => (
+              <ul
+                key={copy}
+                className="flex items-center gap-8 font-[family-name:var(--font-plex-mono)] text-[12px] tracking-[0.04em] text-white/80"
+              >
+                {ticker.map((item) => (
+                  <li key={`${copy}-${item}`} className="flex items-center gap-8">
+                    <span className="size-1 rounded-full bg-[#7ae0a4]" />
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            ))}
+          </div>
+        </div>
+      </Reveal>
     </section>
   );
 }

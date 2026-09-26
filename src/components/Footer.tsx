@@ -6,19 +6,19 @@ export function Footer() {
     <div className="font-[family-name:var(--font-inter-tight)]">
       <section
         id="close"
-        className="relative min-h-[320px] overflow-hidden md:min-h-[400px]"
+        className="relative overflow-hidden"
         style={{
           backgroundImage:
             "radial-gradient(ellipse 72% 64% at 50% 45%, rgba(28, 132, 72, 0.22) 0%, rgba(14, 92, 52, 0.1) 42%, rgba(0, 0, 0, 0) 70%)",
         }}
       >
         <LineField className="absolute inset-0 [mask-image:radial-gradient(ellipse_80%_70%_at_50%_50%,black_8%,transparent_70%)]" />
-        <div className="section-shell relative flex min-h-[320px] flex-col items-center justify-center text-center md:min-h-[400px]">
-          <p className="page-title text-center">
-            <span className="block text-[clamp(1.75rem,1.15rem+2.4vw,2.75rem)] font-medium tracking-[-0.05em] text-white">
+        <div className="section-shell relative flex flex-col items-center justify-center text-center">
+          <p className="page-title page-title-md max-w-4xl text-center text-balance">
+            <span className="font-medium tracking-[-0.05em] text-white">
               Built by noon.
-            </span>
-            <span className="mt-2.5 block text-[clamp(1.25rem,1rem+1.2vw,1.75rem)] font-normal tracking-[-0.03em] text-[#c4c7c2]">
+            </span>{" "}
+            <span className="font-normal tracking-[-0.03em] text-[#c4c7c2]">
               Embedded into noon.
             </span>
           </p>

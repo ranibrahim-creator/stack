@@ -154,13 +154,13 @@ export function Ecosystem() {
         </Reveal>
       </div>
 
-      <Reveal delay={0.1} className="mt-10 md:mt-16">
+      <Reveal delay={0.1} className="mt-16 mb-16">
         <div className="overflow-hidden">
           <div className="eco-marquee flex w-max items-center gap-8 pr-8">
             {[0, 1].map((copy) => (
               <ul
                 key={copy}
-                className="flex items-center gap-8 font-[family-name:var(--font-plex-mono)] text-[12px] text-white/80"
+                className="flex items-center gap-8 font-[family-name:var(--font-inter-tight)] text-[14px] text-white/80 md:text-[15px]"
               >
                 {ticker.map((item) => (
                   <li key={`${copy}-${item}`} className="flex items-center gap-8">

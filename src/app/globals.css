@@ -84,6 +84,11 @@ body {
   padding-top: 0;
 }
 
+#close .section-shell {
+  padding-top: 10rem;
+  padding-bottom: 8rem;
+}
+
 img,
 svg,
 video,

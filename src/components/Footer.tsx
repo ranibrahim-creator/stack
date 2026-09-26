@@ -14,11 +14,11 @@ export function Footer() {
       >
         <LineField className="absolute inset-0 [mask-image:radial-gradient(ellipse_80%_70%_at_50%_50%,black_8%,transparent_70%)]" />
         <div className="section-shell relative flex min-h-[320px] flex-col items-center justify-center text-center md:min-h-[400px]">
-          <p className="page-title page-title-md max-w-2xl">
-            <span className="font-semibold tracking-[-0.05em] text-white">
+          <p className="page-title text-center">
+            <span className="block text-[clamp(1.75rem,1.15rem+2.4vw,2.75rem)] font-medium tracking-[-0.05em] text-white">
               Built by noon.
-            </span>{" "}
-            <span className="font-normal text-[#8A8F98]">
+            </span>
+            <span className="mt-2.5 block text-[clamp(1.25rem,1rem+1.2vw,1.75rem)] font-normal tracking-[-0.03em] text-[#c4c7c2]">
               Embedded into noon.
             </span>
           </p>

@@ -155,7 +155,7 @@ export function Ecosystem() {
       </div>
 
       <Reveal delay={0.1} className="mt-10 md:mt-16">
-        <div className="glass-card-green overflow-hidden rounded-[12px] px-4 py-3 md:px-5">
+        <div className="overflow-hidden">
           <div className="eco-marquee flex w-max items-center gap-8 pr-8">
             {[0, 1].map((copy) => (
               <ul

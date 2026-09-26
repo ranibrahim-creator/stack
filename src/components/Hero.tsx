@@ -30,19 +30,6 @@ export function Hero() {
           using data and infrastructure noon already has — no separate
           application, no separate credit check.
         </motion.p>
-
-        <motion.div
-          initial={{ opacity: 0, y: 8 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1], delay: 0.16 }}
-          className="mt-5"
-        >
-          <p className="raycast-pill">
-            <span className="raycast-pill-label">
-              Built by noon. Embedded into noon.
-            </span>
-          </p>
-        </motion.div>
       </div>
     </section>
   );

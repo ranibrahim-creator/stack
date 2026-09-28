@@ -30,26 +30,19 @@ type Geom = {
   width: number;
   height: number;
   d: string;
-  gutters: { x1: number; x2: number; y: number }[];
   arrow: string;
 };
 
 function boxIn(wrap: HTMLElement, el: HTMLElement) {
-  let left = 0;
-  let top = 0;
-  let node: HTMLElement | null = el;
-  while (node && node !== wrap) {
-    left += node.offsetLeft;
-    top += node.offsetTop;
-    node = node.offsetParent as HTMLElement | null;
-  }
+  const wr = wrap.getBoundingClientRect();
+  const r = el.getBoundingClientRect();
   return {
-    left,
-    right: left + el.offsetWidth,
-    top,
-    bottom: top + el.offsetHeight,
-    midX: left + el.offsetWidth / 2,
-    midY: top + el.offsetHeight / 2,
+    left: r.left - wr.left,
+    right: r.right - wr.left,
+    top: r.top - wr.top,
+    bottom: r.bottom - wr.top,
+    midX: r.left - wr.left + r.width / 2,
+    midY: r.top - wr.top + r.height / 2,
   };
 }
 
@@ -80,17 +73,10 @@ function buildGeom(wrap: HTMLElement, cards: HTMLElement[]): Geom | null {
   const tipY = c1.bottom;
   const arrow = `M ${ex - 4} ${tipY + 7} L ${ex} ${tipY + 1} L ${ex + 4} ${tipY + 7}`;
 
-  const gutters = [0, 1, 2].map((i) => ({
-    x1: boxes[i].right,
-    x2: boxes[i + 1].left,
-    y: boxes[i].top + (boxes[i].bottom - boxes[i].top) / 2,
-  }));
-
   return {
     width: wrap.offsetWidth,
     height: wrap.offsetHeight,
     d,
-    gutters,
     arrow,
   };
 }
@@ -117,11 +103,13 @@ export function ConnectedStagesMinimal() {
     cardRefs.current.forEach((el) => el && ro.observe(el));
     window.addEventListener("resize", measure);
     const later = window.setTimeout(measure, 0);
+    const afterMotion = window.setTimeout(measure, 900);
     void document.fonts?.ready.then(measure);
     return () => {
       ro.disconnect();
       window.removeEventListener("resize", measure);
       window.clearTimeout(later);
+      window.clearTimeout(afterMotion);
     };
   }, [inView]);
 
@@ -148,23 +136,10 @@ export function ConnectedStagesMinimal() {
               className="pointer-events-none absolute top-0 left-0 z-0 hidden lg:block"
               fill="none"
               aria-hidden
-              initial={{ opacity: 0 }}
+              initial={false}
               animate={{ opacity: showPath ? 1 : 0 }}
-              transition={{
-                delay: reduce ? 0 : 0.7,
-                duration: reduce ? 0 : 0.45,
-              }}
+              transition={{ duration: reduce ? 0 : 0.35 }}
             >
-              {geom.gutters.map((g, i) => (
-                <path
-                  key={i}
-                  d={`M ${g.x1} ${g.y} L ${g.x2} ${g.y}`}
-                  stroke={RETURN}
-                  strokeWidth="1"
-                  strokeLinecap="round"
-                />
-              ))}
-
               <path
                 id="minimal-return"
                 d={geom.d}
@@ -190,7 +165,7 @@ export function ConnectedStagesMinimal() {
                 ref={(el) => {
                   cardRefs.current[index] = el;
                 }}
-                className="flex h-full min-w-0 flex-col rounded-[12px] border border-white/[0.06] p-6 backdrop-blur-[24px] backdrop-saturate-150"
+                className="relative flex h-full min-w-0 flex-col rounded-[12px] border border-white/[0.06] p-6 backdrop-blur-[24px] backdrop-saturate-150"
                 style={{
                   background:
                     "radial-gradient(ellipse 90% 80% at 88% 0%, rgb(28 132 72 / 0.22), rgb(14 92 52 / 0.08) 42%, transparent 70%), rgb(8 10 12 / 0.42)",
@@ -212,6 +187,12 @@ export function ConnectedStagesMinimal() {
                 <p className="mt-3 max-w-[28ch] text-[14px] leading-[1.5] text-[#8A8F98]">
                   {stage.body}
                 </p>
+                {index < 3 ? (
+                  <span
+                    aria-hidden
+                    className="pointer-events-none absolute top-1/2 right-[-2.5rem] hidden h-px w-10 bg-[rgb(255_255_255/0.45)] lg:block"
+                  />
+                ) : null}
               </motion.li>
             ))}
           </ol>

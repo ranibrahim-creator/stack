@@ -132,15 +132,6 @@ export function ConnectedStagesMinimal() {
       id="layers"
       className="section-shell relative !pt-12 !pb-12 md:!pt-16 md:!pb-16 lg:!pt-24 lg:!pb-24"
     >
-      <div
-        className="pointer-events-none absolute inset-0"
-        aria-hidden
-        style={{
-          background:
-            "radial-gradient(ellipse 80% 90% at 82% 8%, rgb(28 132 72 / 0.14), rgb(14 92 52 / 0.06) 40%, transparent 68%)",
-        }}
-      />
-
       <div className="relative">
         <SectionTitle
           emphasize="none"
@@ -199,7 +190,11 @@ export function ConnectedStagesMinimal() {
                 ref={(el) => {
                   cardRefs.current[index] = el;
                 }}
-                className="flex h-full min-w-0 flex-col rounded-[12px] border border-white/[0.06] bg-[rgb(8_10_12/0.42)] p-6 backdrop-blur-[24px] backdrop-saturate-150"
+                className="flex h-full min-w-0 flex-col rounded-[12px] border border-white/[0.06] p-6 backdrop-blur-[24px] backdrop-saturate-150"
+                style={{
+                  background:
+                    "radial-gradient(ellipse 90% 80% at 88% 0%, rgb(28 132 72 / 0.22), rgb(14 92 52 / 0.08) 42%, transparent 70%), rgb(8 10 12 / 0.42)",
+                }}
                 initial={reduce ? false : { opacity: 0, y: 16 }}
                 animate={inView || reduce ? { opacity: 1, y: 0 } : { opacity: 0, y: 16 }}
                 transition={{

@@ -1,3 +1,4 @@
+import { Suspense } from "react";
 import { ConnectedLayers } from "@/components/ConnectedLayers";
 import { Ecosystem } from "@/components/Ecosystem";
 import { FAQ } from "@/components/FAQ";
@@ -5,6 +6,7 @@ import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import { Hero } from "@/components/Hero";
 import { ProductCards } from "@/components/ProductCards";
+import { StagesSection } from "@/components/StagesSection";
 
 export default function Home() {
   return (
@@ -16,7 +18,9 @@ export default function Home() {
       <main id="content" className="relative z-10" tabIndex={-1}>
         <Hero />
         <ProductCards />
-        <ConnectedLayers />
+        <Suspense fallback={<ConnectedLayers />}>
+          <StagesSection />
+        </Suspense>
         <Ecosystem />
         <FAQ />
       </main>

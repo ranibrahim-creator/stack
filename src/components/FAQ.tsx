@@ -41,9 +41,10 @@ export function FAQ() {
   return (
     <section id="faq" className="section-shell relative z-10">
       <Reveal>
-        <div className="flex flex-col gap-6 md:gap-8 lg:flex-row lg:gap-12">
-          <h2 className="page-title page-title-sm text-balance lg:w-56 lg:shrink-0">
-            Frequently asked questions
+        <div className="flex flex-col gap-10 md:gap-12 lg:flex-row lg:gap-16">
+          <h2 className="section-display text-balance lg:w-[min(42%,22rem)] lg:shrink-0">
+            <span className="section-display-muted block">Frequently</span>
+            <span className="section-display-strong block">asked questions</span>
           </h2>
           <div className="flex min-w-0 flex-1 flex-col gap-2">
             {items.map((item, index) => {

@@ -13,11 +13,11 @@ export function SectionTitle({
   className?: string;
   emphasize?: "start" | "end" | "none";
 }) {
-  const muted = "font-normal text-[0.78em] tracking-[-0.02em] text-[#8A8F98]";
-  const strong = "font-semibold tracking-[-0.05em] text-white";
+  const muted = "section-display-muted";
+  const strong = "section-display-strong";
 
   return (
-    <Tag className={`page-title page-title-sm text-balance ${className}`}>
+    <Tag className={`section-display text-balance ${className}`}>
       {emphasize === "none" ? (
         <>
           {line1}
@@ -25,12 +25,13 @@ export function SectionTitle({
         </>
       ) : (
         <>
-          <span className={emphasize === "start" ? strong : muted}>{line1}</span>
+          <span className={`block ${emphasize === "start" ? strong : muted}`}>
+            {line1}
+          </span>
           {line2 ? (
-            <>
-              {" "}
-              <span className={emphasize === "start" ? muted : strong}>{line2}</span>
-            </>
+            <span className={`block ${emphasize === "start" ? muted : strong}`}>
+              {line2}
+            </span>
           ) : null}
         </>
       )}

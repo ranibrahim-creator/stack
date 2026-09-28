@@ -96,8 +96,7 @@ export function Ecosystem() {
       <div className="grid items-center gap-6 md:grid-cols-2 md:gap-8 lg:gap-12">
         <Reveal className="min-w-0 md:pt-2">
           <SectionTitle
-            className="max-w-[20ch]"
-            emphasize="start"
+            className="max-w-[12ch]"
             line1="Stack."
             line2="Built into noon."
           />

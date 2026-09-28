@@ -34,11 +34,10 @@ export function ConnectedStagesMinimal() {
   return (
     <section
       id="layers"
-      className="section-shell relative !pt-12 !pb-12 md:!pt-16 md:!pb-16 lg:!pt-24 lg:!pb-24"
+      className="section-shell relative !pb-12 md:!pb-16 lg:!pb-24"
     >
       <div className="relative">
         <SectionTitle
-          emphasize="none"
           line1="One platform."
           line2="Four connected stages."
         />

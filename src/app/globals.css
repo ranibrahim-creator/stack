@@ -101,6 +101,27 @@ body {
   letter-spacing: -0.03em;
 }
 
+.section-display {
+  font-family: var(--font-inter-tight), sans-serif;
+  font-size: clamp(2.25rem, 5.4vw, 4rem);
+  font-weight: 600;
+  line-height: 0.94;
+  letter-spacing: -0.055em;
+  color: #ededed;
+}
+
+.section-display-muted {
+  font-weight: 500;
+  letter-spacing: -0.045em;
+  color: #8a8f98;
+}
+
+.section-display-strong {
+  font-weight: 600;
+  letter-spacing: -0.055em;
+  color: #ededed;
+}
+
 .page-wrap {
   width: min(100%, 1200px);
   margin-inline: auto;
@@ -112,20 +133,17 @@ body {
   width: min(100%, 1200px);
   margin-inline: auto;
   padding-inline: 1rem;
-  padding-top: 4rem;
+  padding-top: 7rem;
   padding-bottom: 0;
 }
 
 #contact.section-shell {
+  padding-top: 4rem;
   padding-bottom: 4rem;
 }
 
-#faq.section-shell {
-  padding-top: 0;
-}
-
 #close .section-shell {
-  padding-top: 10rem;
+  padding-top: 12rem;
   padding-bottom: 8rem;
 }
 
@@ -146,6 +164,14 @@ canvas {
   .section-shell {
     padding-inline: 1.5rem;
   }
+
+  .section-shell:not(#contact) {
+    padding-top: 8rem;
+  }
+
+  #close .section-shell {
+    padding-top: 13rem;
+  }
 }
 
 @media (min-width: 1024px) {
@@ -156,6 +182,14 @@ canvas {
   .page-wrap,
   .section-shell {
     padding-inline: 2rem;
+  }
+
+  .section-shell:not(#contact) {
+    padding-top: 9rem;
+  }
+
+  #close .section-shell {
+    padding-top: 14rem;
   }
 }
 

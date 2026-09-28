@@ -110,7 +110,6 @@ export function ConnectedLayers() {
           className="glass-card-mint stages-card relative overflow-hidden rounded-[12px] px-8 py-10 sm:px-10 md:px-14 md:py-14"
         >
           <SectionTitle
-            emphasize="none"
             line1="One platform."
             line2="Four connected stages."
           />

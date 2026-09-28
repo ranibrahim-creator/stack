@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, useReducedMotion } from "framer-motion";
-import { useLayoutEffect, useRef, useState, type RefObject } from "react";
+import { useLayoutEffect, useRef, useState } from "react";
 import { Reveal } from "./ui/Reveal";
 import { SectionTitle } from "./ui/SectionTitle";
 
@@ -45,40 +45,40 @@ type LoopGeom = {
   stageHits: number[];
 };
 
-function relBox(wrap: DOMRect, el: Element) {
-  const r = el.getBoundingClientRect();
-  return {
-    left: r.left - wrap.left,
-    right: r.right - wrap.left,
-    top: r.top - wrap.top,
-    bottom: r.bottom - wrap.top,
-  };
-}
-
-function quarter(r: number) {
-  return (Math.PI * r) / 2;
-}
-
 function buildLoop(wrap: HTMLElement): LoopGeom | null {
   const rules = [...wrap.querySelectorAll("[data-stage-rule]")];
-  if (rules.length !== 4) return null;
-
   const wr = wrap.getBoundingClientRect();
-  if (wr.width < 40 || wr.height < 40) return null;
+  if (wr.width < 80 || wr.height < 80) return null;
 
-  const boxes = rules.map((el) => relBox(wr, el));
-  const aligned = boxes.every((b) => Math.abs(b.top - boxes[0].top) < 12);
-  if (!aligned) return null;
-
-  const inset = 1;
-  const radius =
-    parseFloat(getComputedStyle(wrap).borderTopLeftRadius) || 12;
-  const L = inset;
-  const R = wr.width - inset;
-  const T = inset;
-  const B = wr.height - inset;
-  const y = boxes[0].top + 0.5;
+  const radius = parseFloat(getComputedStyle(wrap).borderTopLeftRadius) || 12;
+  const L = 1;
+  const R = wr.width - 1;
+  const T = 1;
+  const B = wr.height - 1;
   const J = JUNCTION;
+
+  let boxes = rules.map((el) => {
+    const r = el.getBoundingClientRect();
+    return {
+      left: r.left - wr.left,
+      right: r.right - wr.left,
+      top: r.top - wr.top,
+    };
+  });
+
+  const aligned =
+    boxes.length === 4 && boxes.every((b) => Math.abs(b.top - boxes[0].top) < 16);
+
+  if (!aligned) {
+    const yGuess = Math.min(Math.max(wr.height * 0.38, T + radius + 36), B - 80);
+    boxes = [0.12, 0.34, 0.56, 0.78].map((t) => ({
+      left: wr.width * t,
+      right: wr.width * t + wr.width * 0.16,
+      top: yGuess,
+    }));
+  }
+
+  const y = boxes[0].top + 0.5;
   const r1 = boxes[0];
 
   const alongRules = boxes.flatMap((box, i) => {
@@ -132,7 +132,7 @@ function buildLoop(wrap: HTMLElement): LoopGeom | null {
     `L ${R} ${y}`,
   ].join(" ");
 
-  let dist = quarter(J) + Math.max(0, r1.left - (L + J));
+  let dist = (Math.PI * J) / 2 + Math.max(0, r1.left - (L + J));
   const stageHits = [dist];
   boxes.forEach((box, i) => {
     if (i === 0) return;
@@ -156,166 +156,39 @@ function buildLoop(wrap: HTMLElement): LoopGeom | null {
   };
 }
 
-function LoopOverlay({
-  wrapRef,
-  onStageHit,
-}: {
-  wrapRef: RefObject<HTMLDivElement | null>;
-  onStageHit: (index: number) => void;
-}) {
+export function ConnectedLayers() {
+  const wrapRef = useRef<HTMLDivElement>(null);
+  const [wrapEl, setWrapEl] = useState<HTMLDivElement | null>(null);
+  const measurePath = useRef<SVGPathElement>(null);
+  const lastDist = useRef(0);
+  const litTimer = useRef(0);
+  const lastHit = useRef(-1);
   const reduce = useReducedMotion();
   const [geom, setGeom] = useState<LoopGeom | null>(null);
   const [pathLen, setPathLen] = useState(0);
-  const measurePath = useRef<SVGPathElement>(null);
-  const lastDist = useRef(0);
+  const [lit, setLit] = useState<number | null>(null);
 
   useLayoutEffect(() => {
-    const wrap = wrapRef.current;
+    const wrap = wrapEl ?? wrapRef.current;
     if (!wrap) return;
 
-    const measure = () => {
-      setGeom(buildLoop(wrap));
-    };
-
+    const measure = () => setGeom(buildLoop(wrap));
     measure();
     const ro = new ResizeObserver(measure);
     ro.observe(wrap);
-    wrap.querySelectorAll("[data-stage-rule]").forEach((el) => ro.observe(el));
     window.addEventListener("resize", measure);
-    const fonts = document.fonts?.ready.then(measure);
-    const again = window.setTimeout(measure, 120);
+    const later = window.setTimeout(measure, 0);
+    void document.fonts?.ready.then(measure);
     return () => {
       ro.disconnect();
       window.removeEventListener("resize", measure);
-      window.clearTimeout(again);
-      void fonts;
+      window.clearTimeout(later);
     };
-  }, [wrapRef]);
+  }, [wrapEl]);
 
   useLayoutEffect(() => {
-    const el = measurePath.current;
-    setPathLen(el ? el.getTotalLength() : 0);
+    setPathLen(measurePath.current?.getTotalLength() ?? 0);
   }, [geom?.loop]);
-
-  if (!geom) return null;
-
-  const tail = Math.max(40, pathLen * 0.05);
-  const head = Math.max(12, pathLen * 0.014);
-
-  return (
-    <>
-      <svg
-        viewBox={`0 0 ${geom.width} ${geom.height}`}
-        className="pointer-events-none absolute inset-0 z-10 hidden h-full w-full lg:block"
-        fill="none"
-        aria-hidden
-      >
-        <defs>
-          <linearGradient id="stages-beam-fade" x1="0" y1="0" x2="1" y2="0">
-            <stop offset="0%" stopColor={BEAM} stopOpacity="0" />
-            <stop offset="55%" stopColor={BEAM} stopOpacity="0.5" />
-            <stop offset="100%" stopColor={BEAM_HEAD} stopOpacity="1" />
-          </linearGradient>
-          <filter id="stages-beam-glow" x="-50%" y="-80%" width="200%" height="260%">
-            <feGaussianBlur stdDeviation="2.4" result="blur" />
-            <feMerge>
-              <feMergeNode in="blur" />
-              <feMergeNode in="SourceGraphic" />
-            </feMerge>
-          </filter>
-        </defs>
-
-        <path d={geom.staticTop} stroke="rgb(255 255 255 / 0.16)" strokeWidth="1" />
-        <path
-          d={geom.visible}
-          stroke={TRACE}
-          strokeWidth="1.25"
-          strokeOpacity="0.72"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
-        <path ref={measurePath} d={geom.loop} stroke="none" />
-
-        {geom.nodes.map((node, i) => (
-          <circle key={i} cx={node.x} cy={node.y} r="2.25" fill={TRACE} />
-        ))}
-
-        <path
-          d={`M ${geom.arrowX - 8} ${geom.arrowY - 4} L ${geom.arrowX} ${geom.arrowY} L ${geom.arrowX - 8} ${geom.arrowY + 4}`}
-          stroke={TRACE}
-          strokeWidth="1.35"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
-
-        {!reduce && pathLen > 0 ? (
-          <>
-            <motion.path
-              d={geom.loop}
-              stroke={BEAM}
-              strokeWidth="2.75"
-              strokeLinecap="round"
-              strokeOpacity="0.32"
-              strokeDasharray={`${tail} ${Math.max(1, pathLen - tail)}`}
-              filter="url(#stages-beam-glow)"
-              animate={{ strokeDashoffset: [0, -pathLen] }}
-              transition={{ duration: BEAM_SECONDS, repeat: Infinity, ease: "linear" }}
-            />
-            <motion.path
-              d={geom.loop}
-              stroke={BEAM_HEAD}
-              strokeWidth="1.6"
-              strokeLinecap="round"
-              strokeDasharray={`${head} ${Math.max(1, pathLen - head)}`}
-              filter="url(#stages-beam-glow)"
-              animate={{ strokeDashoffset: [0, -pathLen] }}
-              transition={{ duration: BEAM_SECONDS, repeat: Infinity, ease: "linear" }}
-              onUpdate={(latest) => {
-                const raw = Number(latest.strokeDashoffset);
-                if (!Number.isFinite(raw) || pathLen <= 0) return;
-                const dist = ((-raw % pathLen) + pathLen) % pathLen;
-                const prev = lastDist.current;
-                const step = dist >= prev ? dist - prev : pathLen - prev + dist;
-                lastDist.current = dist;
-                if (step <= 0 || step > pathLen * 0.12) return;
-                geom.stageHits.forEach((hit, i) => {
-                  const crossed =
-                    dist >= prev ? prev < hit && dist >= hit : prev < hit || dist >= hit;
-                  if (crossed) onStageHit(i);
-                });
-              }}
-            />
-            <motion.rect
-              width="52"
-              height="2"
-              rx="1"
-              fill="url(#stages-beam-fade)"
-              filter="url(#stages-beam-glow)"
-              animate={{ offsetDistance: ["0%", "100%"] }}
-              transition={{ duration: BEAM_SECONDS, repeat: Infinity, ease: "linear" }}
-              style={{
-                offsetPath: `path('${geom.loop}')`,
-                offsetRotate: "auto",
-              }}
-            />
-          </>
-        ) : null}
-      </svg>
-      <p
-        className="pointer-events-none absolute z-10 hidden -translate-x-1/2 -translate-y-1/2 bg-[#0a0b0a] px-2.5 font-[family-name:var(--font-plex-mono)] text-[12px] tracking-[0.16em] text-[#c4c7c2] uppercase lg:block"
-        style={{ left: geom.labelX, top: geom.labelY }}
-      >
-        {LABEL}
-      </p>
-    </>
-  );
-}
-
-export function ConnectedLayers() {
-  const wrapRef = useRef<HTMLDivElement>(null);
-  const [lit, setLit] = useState<number | null>(null);
-  const litTimer = useRef(0);
-  const lastHit = useRef(-1);
 
   const onStageHit = (index: number) => {
     if (lastHit.current === index) return;
@@ -328,12 +201,18 @@ export function ConnectedLayers() {
     }, 600);
   };
 
+  const tail = Math.max(40, pathLen * 0.05);
+  const head = Math.max(12, pathLen * 0.014);
+
   return (
     <section id="layers" className="section-shell">
       <Reveal>
         <div
-          ref={wrapRef}
-          className="glass-card-mint stages-card relative overflow-hidden rounded-[12px] border-[rgb(255_255_255/0.08)] px-8 py-10 sm:px-10 md:px-14 md:py-14 lg:border-transparent"
+          ref={(node) => {
+            wrapRef.current = node;
+            setWrapEl(node);
+          }}
+          className="glass-card-mint stages-card relative overflow-hidden rounded-[12px] px-8 py-10 sm:px-10 md:px-14 md:py-14 lg:overflow-visible"
         >
           <SectionTitle
             emphasize="none"
@@ -372,7 +251,111 @@ export function ConnectedLayers() {
             ↺ Repayment feeds back into Data
           </p>
 
-          <LoopOverlay wrapRef={wrapRef} onStageHit={onStageHit} />
+          {geom ? (
+            <>
+              <svg
+                viewBox={`0 0 ${geom.width} ${geom.height}`}
+                className="stages-loop pointer-events-none absolute inset-0 z-10 h-full w-full"
+                fill="none"
+                aria-hidden
+              >
+                <defs>
+                  <linearGradient id="stages-beam-fade" x1="0" y1="0" x2="1" y2="0">
+                    <stop offset="0%" stopColor={BEAM} stopOpacity="0" />
+                    <stop offset="55%" stopColor={BEAM} stopOpacity="0.5" />
+                    <stop offset="100%" stopColor={BEAM_HEAD} stopOpacity="1" />
+                  </linearGradient>
+                  <filter id="stages-beam-glow" x="-50%" y="-80%" width="200%" height="260%">
+                    <feGaussianBlur stdDeviation="2.4" result="blur" />
+                    <feMerge>
+                      <feMergeNode in="blur" />
+                      <feMergeNode in="SourceGraphic" />
+                    </feMerge>
+                  </filter>
+                </defs>
+                <path d={geom.staticTop} stroke="rgb(255 255 255 / 0.18)" strokeWidth="1" />
+                <path
+                  d={geom.visible}
+                  stroke={TRACE}
+                  strokeWidth="1.35"
+                  strokeOpacity="0.85"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+                <path ref={measurePath} d={geom.loop} stroke="none" />
+                {geom.nodes.map((node, i) => (
+                  <circle key={i} cx={node.x} cy={node.y} r="2.25" fill={TRACE} />
+                ))}
+                <path
+                  d={`M ${geom.arrowX - 8} ${geom.arrowY - 4} L ${geom.arrowX} ${geom.arrowY} L ${geom.arrowX - 8} ${geom.arrowY + 4}`}
+                  stroke={TRACE}
+                  strokeWidth="1.4"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+                {!reduce && pathLen > 0 ? (
+                  <>
+                    <motion.path
+                      d={geom.loop}
+                      stroke={BEAM}
+                      strokeWidth="2.75"
+                      strokeLinecap="round"
+                      strokeOpacity="0.32"
+                      strokeDasharray={`${tail} ${Math.max(1, pathLen - tail)}`}
+                      filter="url(#stages-beam-glow)"
+                      animate={{ strokeDashoffset: [0, -pathLen] }}
+                      transition={{ duration: BEAM_SECONDS, repeat: Infinity, ease: "linear" }}
+                    />
+                    <motion.path
+                      d={geom.loop}
+                      stroke={BEAM_HEAD}
+                      strokeWidth="1.6"
+                      strokeLinecap="round"
+                      strokeDasharray={`${head} ${Math.max(1, pathLen - head)}`}
+                      filter="url(#stages-beam-glow)"
+                      animate={{ strokeDashoffset: [0, -pathLen] }}
+                      transition={{ duration: BEAM_SECONDS, repeat: Infinity, ease: "linear" }}
+                      onUpdate={(latest) => {
+                        const raw = Number(latest.strokeDashoffset);
+                        if (!Number.isFinite(raw) || pathLen <= 0) return;
+                        const dist = ((-raw % pathLen) + pathLen) % pathLen;
+                        const prev = lastDist.current;
+                        const step = dist >= prev ? dist - prev : pathLen - prev + dist;
+                        lastDist.current = dist;
+                        if (step <= 0 || step > pathLen * 0.12) return;
+                        geom.stageHits.forEach((hit, i) => {
+                          const crossed =
+                            dist >= prev
+                              ? prev < hit && dist >= hit
+                              : prev < hit || dist >= hit;
+                          if (crossed) onStageHit(i);
+                        });
+                      }}
+                    />
+                    <motion.rect
+                      width="52"
+                      height="2"
+                      rx="1"
+                      fill="url(#stages-beam-fade)"
+                      filter="url(#stages-beam-glow)"
+                      animate={{ offsetDistance: ["0%", "100%"] }}
+                      transition={{ duration: BEAM_SECONDS, repeat: Infinity, ease: "linear" }}
+                      style={{
+                        offsetPath: `path('${geom.loop}')`,
+                        offsetRotate: "auto",
+                      }}
+                    />
+                  </>
+                ) : null}
+              </svg>
+              <p
+                className="stages-loop-label pointer-events-none absolute z-10 -translate-x-1/2 -translate-y-1/2 bg-[#0a0b0a] px-2.5 font-[family-name:var(--font-plex-mono)] text-[12px] tracking-[0.16em] text-[#c4c7c2] uppercase"
+                style={{ left: geom.labelX, top: geom.labelY }}
+              >
+                {LABEL}
+              </p>
+            </>
+          ) : null}
         </div>
       </Reveal>
     </section>

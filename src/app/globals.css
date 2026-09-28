@@ -562,6 +562,15 @@ canvas {
   );
 }
 
+.hero-title {
+  font-family: var(--font-inter-tight), sans-serif;
+  font-size: clamp(3.25rem, 9vw, 6.5rem);
+  font-weight: 600;
+  line-height: 0.92;
+  letter-spacing: -0.06em;
+  color: #ededed;
+}
+
 .close-bloom {
   background: radial-gradient(
     ellipse 72% 64% at 50% 45%,

@@ -199,7 +199,7 @@ export function ConnectedStagesMinimal() {
                 ref={(el) => {
                   cardRefs.current[index] = el;
                 }}
-                className="min-w-0 rounded-[12px] border border-white/12 bg-white/[0.07] p-6 shadow-[inset_0_1px_0_rgb(255_255_255/0.08)] backdrop-blur-[22px] backdrop-saturate-150 transition-colors duration-200 hover:border-white/20"
+                className="flex h-full min-w-0 flex-col rounded-[12px] border border-white/[0.06] bg-[rgb(8_10_12/0.42)] p-6 backdrop-blur-[24px] backdrop-saturate-150"
                 initial={reduce ? false : { opacity: 0, y: 16 }}
                 animate={inView || reduce ? { opacity: 1, y: 0 } : { opacity: 0, y: 16 }}
                 transition={{

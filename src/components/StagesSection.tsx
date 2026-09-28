@@ -8,7 +8,7 @@ import { ConnectedStagesMinimal } from "./ConnectedStagesMinimal";
 export function StagesSection() {
   const params = useSearchParams();
   const variant = params.get("variant");
-  if (variant === "minimal") return <ConnectedStagesMinimal />;
   if (variant === "cards") return <ConnectedStagesCards />;
-  return <ConnectedLayers />;
+  if (variant === "original") return <ConnectedLayers />;
+  return <ConnectedStagesMinimal />;
 }

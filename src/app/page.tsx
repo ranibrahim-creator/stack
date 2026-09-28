@@ -1,5 +1,5 @@
 import { Suspense } from "react";
-import { ConnectedLayers } from "@/components/ConnectedLayers";
+import { ConnectedStagesMinimal } from "@/components/ConnectedStagesMinimal";
 import { Ecosystem } from "@/components/Ecosystem";
 import { FAQ } from "@/components/FAQ";
 import { Footer } from "@/components/Footer";
@@ -18,7 +18,7 @@ export default function Home() {
       <main id="content" className="relative z-10" tabIndex={-1}>
         <Hero />
         <ProductCards />
-        <Suspense fallback={<ConnectedLayers />}>
+        <Suspense fallback={<ConnectedStagesMinimal />}>
           <StagesSection />
         </Suspense>
         <Ecosystem />

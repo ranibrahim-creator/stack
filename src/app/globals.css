@@ -297,19 +297,12 @@ canvas {
     0 0 0 1px rgb(28 132 72 / 0.12);
 }
 
-.stages-loop,
-.stages-loop-label {
+.stages-loop {
   display: none;
 }
 
 @media (min-width: 1024px) {
-  .stages-card {
-    border-color: transparent;
-    overflow: visible;
-  }
-
-  .stages-loop,
-  .stages-loop-label {
+  .stages-loop {
     display: block;
   }
 }

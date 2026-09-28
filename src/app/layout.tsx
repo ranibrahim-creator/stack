@@ -1,9 +1,14 @@
 import type { Metadata } from "next";
-import { Geist, IBM_Plex_Mono, IBM_Plex_Sans, Inter_Tight } from "next/font/google";
+import { Geist, IBM_Plex_Mono, IBM_Plex_Sans, Inter, Inter_Tight } from "next/font/google";
 import "./globals.css";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
+  subsets: ["latin"],
+});
+
+const inter = Inter({
+  variable: "--font-inter",
   subsets: ["latin"],
 });
 
@@ -39,7 +44,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${interTight.variable} ${plexSans.variable} ${plexMono.variable} h-full antialiased`}
+      className={`${geistSans.variable} ${inter.variable} ${interTight.variable} ${plexSans.variable} ${plexMono.variable} h-full antialiased`}
     >
       <body
         className="min-h-full overflow-x-hidden font-sans text-ink"

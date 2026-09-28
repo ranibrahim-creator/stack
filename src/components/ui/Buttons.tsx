@@ -25,7 +25,7 @@ export function SecondaryButton({
   return (
     <a
       href={href}
-      className={`inline-flex items-center justify-center text-sm font-medium text-green transition-colors hover:text-ink ${className}`}
+      className={`inline-flex items-center justify-center text-sm font-medium text-[#3cb86a] transition-colors hover:text-ink ${className}`}
     >
       {children}
     </a>

@@ -3,7 +3,7 @@ import { Logo } from "./Logo";
 export function Header() {
   return (
     <header
-      className="fixed inset-x-0 top-0 z-50 overflow-hidden border-b border-white/[0.06] backdrop-blur-xl backdrop-saturate-150"
+      className="fixed inset-x-0 top-0 z-50 overflow-hidden border-b border-white/[0.06] font-[family-name:var(--font-inter-tight)] backdrop-blur-xl backdrop-saturate-150"
       style={{
         background: "rgb(0 0 0 / 0.72)",
         boxShadow: "0 16px 36px rgb(0 0 0 / 0.38)",
@@ -17,7 +17,7 @@ export function Header() {
           aria-label="stack by noon"
         >
           <Logo className="h-4 w-5" />
-          <span className="text-[14px] font-medium">stack by noon</span>
+          <span className="text-[12px] font-medium leading-none">stack by noon</span>
         </a>
       </div>
     </header>

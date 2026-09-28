@@ -9,8 +9,11 @@ import { ProductCards } from "@/components/ProductCards";
 export default function Home() {
   return (
     <div id="top" className="relative overflow-x-hidden pt-12" style={{ background: "var(--bg)" }}>
+      <a href="#content" className="skip-link">
+        Skip to content
+      </a>
       <Header />
-      <main className="relative z-10">
+      <main id="content" className="relative z-10" tabIndex={-1}>
         <Hero />
         <ProductCards />
         <ConnectedLayers />

@@ -39,13 +39,13 @@ export function ConnectedLayers() {
                 key={node.title}
                 className="group min-w-0 border-t border-white/12 pt-5 transition-colors duration-200 hover:border-[#2f9a5c]"
               >
-                <p className="font-[family-name:var(--font-plex-mono)] text-[11px] tracking-[0.16em] text-[#5c6166] uppercase transition-colors duration-200 group-hover:text-[#2f9a5c]">
+                <p className="font-[family-name:var(--font-plex-mono)] text-[12px] tracking-[0.16em] text-[#a3a8a2] uppercase transition-colors duration-200 group-hover:text-[#3cb86a]">
                   {String(index + 1).padStart(2, "0")}
                 </p>
-                <h3 className="mt-4 font-[family-name:var(--font-inter-tight)] text-[19px] font-medium leading-none tracking-[-0.03em] text-white transition-colors duration-200 group-hover:text-[#2f9a5c]">
+                <h3 className="mt-4 font-[family-name:var(--font-inter-tight)] text-[18px] font-medium leading-none tracking-[-0.03em] text-white transition-colors duration-200 group-hover:text-[#3cb86a]">
                   {node.title}
                 </h3>
-                <p className="mt-3 max-w-[28ch] text-[14px] leading-[1.65] text-[#8A8F98]">
+                <p className="mt-3 max-w-[28ch] text-[14px] leading-[1.5] text-[#8A8F98]">
                   {node.body}
                 </p>
               </div>

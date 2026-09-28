@@ -160,7 +160,7 @@ export function Ecosystem() {
             {[0, 1].map((copy) => (
               <ul
                 key={copy}
-                className="flex items-center gap-8 font-[family-name:var(--font-inter-tight)] text-[14px] text-white/80 md:text-[15px]"
+                className="flex items-center gap-8 text-[14px] text-white/80"
               >
                 {ticker.map((item) => (
                   <li key={`${copy}-${item}`} className="flex items-center gap-8">

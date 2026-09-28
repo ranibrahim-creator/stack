@@ -10,6 +10,18 @@
   --slate: #8b9691;
   --border: #23262a;
   --shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+  /* Major Second 1.125 from 14px, rounded */
+  --step--3: 10px;
+  --step--2: 11px;
+  --step--1: 12px;
+  --step-0: 14px;
+  --step-1: 16px;
+  --step-2: 18px;
+  --step-3: 20px;
+  --step-4: 22px;
+  --step-5: 25px;
+  --step-6: 28px;
+  --step-7: 32px;
 }
 
 @theme inline {
@@ -21,7 +33,7 @@
   --color-ink: var(--ink);
   --color-slate: var(--slate);
   --color-border: var(--border);
-  --font-sans: var(--font-plex-sans);
+  --font-sans: var(--font-inter);
   --font-tight: var(--font-inter-tight);
   --font-mono: var(--font-plex-mono);
 }
@@ -32,10 +44,39 @@ html {
   background: var(--bg);
 }
 
+a:focus-visible,
+button:focus-visible,
+summary:focus-visible {
+  outline: 2px solid #3cb86a;
+  outline-offset: 3px;
+}
+
+.skip-link {
+  position: absolute;
+  left: 1rem;
+  top: 0.75rem;
+  z-index: 80;
+  border-radius: 999px;
+  background: #111113;
+  padding: 0.5rem 0.85rem;
+  font-size: var(--step-0);
+  color: var(--ink);
+  transform: translateY(-160%);
+}
+
+.skip-link:focus {
+  transform: none;
+}
+
 body {
   background: var(--bg);
   color: var(--ink);
-  font-family: var(--font-plex-sans), Inter, ui-sans-serif, system-ui, sans-serif;
+  font-family: var(--font-inter), Inter, ui-sans-serif, system-ui, sans-serif;
+  font-optical-sizing: auto;
+  font-kerning: normal;
+  font-feature-settings: "kern" 1, "liga" 1;
+  font-size: var(--step-0);
+  letter-spacing: 0;
 }
 
 .page-title {
@@ -47,16 +88,16 @@ body {
 }
 
 .page-title-lg {
-  font-size: clamp(1.75rem, 1.1rem + 3.2vw, 3rem);
+  font-size: var(--step-7);
   letter-spacing: -0.04em;
 }
 
 .page-title-md {
-  font-size: clamp(1.375rem, 1rem + 1.6vw, 2rem);
+  font-size: var(--step-5);
 }
 
 .page-title-sm {
-  font-size: clamp(1.375rem, 1.1rem + 1.1vw, 1.75rem);
+  font-size: var(--step-4);
   letter-spacing: -0.03em;
 }
 
@@ -73,7 +114,6 @@ body {
   padding-inline: 1rem;
   padding-top: 4rem;
   padding-bottom: 0;
-  font-family: var(--font-inter-tight), sans-serif;
 }
 
 #contact.section-shell {
@@ -142,7 +182,7 @@ canvas {
 
 .hero-commerce {
   font-weight: 600;
-  background-image: linear-gradient(120deg, #2f9a5c 0%, #0e5c34 100%);
+  background-image: linear-gradient(120deg, #5cd68a 0%, #2f9a5c 100%);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -187,7 +227,7 @@ canvas {
   border-radius: 999px;
   background: var(--surface);
   padding: 4px 12px;
-  font-size: 12px;
+  font-size: var(--step--2);
   letter-spacing: 0;
   color: var(--ink);
 }

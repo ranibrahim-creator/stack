@@ -12,7 +12,7 @@ export function RepeatUse() {
       ref={ref}
       className="px-5 pt-24 font-[family-name:var(--font-inter-tight)] md:px-8 md:pt-32 lg:px-12"
     >
-      <p className="font-[family-name:var(--font-plex-mono)] text-[11px] tracking-[0.08em] text-[#5c6166]">
+      <p className="font-[family-name:var(--font-plex-mono)] text-[12px] tracking-[0.08em] text-[#a3a8a2]">
         Built for repeat use
       </p>
       <motion.p
@@ -23,7 +23,7 @@ export function RepeatUse() {
       >
         3+
       </motion.p>
-      <p className="mt-4 max-w-[360px] font-[family-name:var(--font-plex-mono)] text-[13px] leading-[1.45] tracking-[0.04em] text-[#5c6166]">
+      <p className="mt-4 max-w-[360px] font-[family-name:var(--font-plex-mono)] text-[13px] leading-[1.45] tracking-[0.04em] text-[#a3a8a2]">
         financing cycles per seller, on average
       </p>
     </section>

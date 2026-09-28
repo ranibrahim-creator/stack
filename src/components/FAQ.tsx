@@ -55,13 +55,17 @@ export function FAQ() {
                 >
                   <button
                     type="button"
+                    id={`faq-button-${index}`}
                     className="group flex w-full items-center gap-4 text-left text-[16px] leading-[1.5] break-words text-ink"
                     aria-expanded={isOpen}
+                    aria-controls={`faq-panel-${index}`}
                     onClick={() => setOpen(isOpen ? -1 : index)}
                   >
-                    <span className="min-w-0 flex-1 font-medium">{item.q}</span>
+                    <span className="min-w-0 flex-1 font-[family-name:var(--font-inter-tight)] font-medium">
+                      {item.q}
+                    </span>
                     <span
-                      className="flex size-6 shrink-0 items-center justify-center rounded-[8px] text-[16px] leading-none text-green transition-colors duration-200 group-hover:bg-green-tint group-hover:text-[#7ae0a4]"
+                      className="flex size-6 shrink-0 items-center justify-center rounded-[8px] text-[16px] leading-none text-[#3cb86a] transition-colors duration-200 group-hover:bg-green-tint group-hover:text-[#7ae0a4]"
                       aria-hidden
                     >
                       {isOpen ? "−" : "+"}
@@ -79,7 +83,12 @@ export function FAQ() {
                         }}
                         className="overflow-hidden"
                       >
-                        <p className="pt-3 pr-0 pb-0 text-[14px] leading-[1.5] text-[#8A8F98] sm:pr-8 sm:pt-4">
+                        <p
+                          id={`faq-panel-${index}`}
+                          role="region"
+                          aria-labelledby={`faq-button-${index}`}
+                          className="pt-3 pr-0 pb-0 text-[14px] leading-[1.5] text-[#8A8F98] sm:pr-8 sm:pt-4"
+                        >
                           {item.a}
                         </p>
                       </motion.div>

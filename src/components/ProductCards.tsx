@@ -136,7 +136,7 @@ export function ProductCards() {
             <div className="fig-visual flex h-40 items-center justify-center sm:h-52">
               <item.Figure />
             </div>
-            <h3 className="text-[16px] font-medium text-ink">
+            <h3 className="font-[family-name:var(--font-inter-tight)] text-[16px] font-medium text-ink">
               {item.title}
             </h3>
             <p className="mt-2 max-w-xs text-[14px] leading-[1.5] text-[#8A8F98]">

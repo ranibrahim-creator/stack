@@ -4,6 +4,7 @@ import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import { Hero } from "@/components/Hero";
 import { ProductCards } from "@/components/ProductCards";
+import { RepeatUse } from "@/components/RepeatUse";
 import { StagesSection } from "@/components/StagesSection";
 
 export default function Home() {
@@ -18,6 +19,7 @@ export default function Home() {
         <ProductCards />
         <StagesSection />
         <Ecosystem />
+        <RepeatUse />
         <FAQ />
       </main>
       <Footer />

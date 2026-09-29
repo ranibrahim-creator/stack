@@ -10,12 +10,12 @@ const stages = [
     body: "Commerce signals from across noon help Stack understand seller performance and determine eligibility.",
   },
   {
-    title: "Capital",
+    title: "Financing",
     body: "Eligible businesses receive working capital based on their business activity and financing requirements.",
   },
   {
     title: "Commerce",
-    body: "That capital funds real inventory and sales activity across noon.",
+    body: "Financing supports inventory and sales activity within the noon ecosystem.",
   },
   {
     title: "Repayment",

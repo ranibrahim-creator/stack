@@ -223,6 +223,55 @@ canvas {
   filter: drop-shadow(0 0 14px rgb(28 132 72 / 0.35));
 }
 
+.repeat-field-dots {
+  opacity: 0.45;
+  background-image: radial-gradient(
+    circle,
+    rgb(255 255 255 / 0.1) 1px,
+    transparent 1.2px
+  );
+  background-size: 16px 16px;
+  mask-image: linear-gradient(
+    to right,
+    rgb(0 0 0 / 0.85),
+    rgb(0 0 0 / 0.35) 62%,
+    rgb(0 0 0 / 0.12)
+  );
+}
+
+.repeat-stat-glow-primary {
+  position: absolute;
+  top: 38%;
+  right: 0;
+  width: min(78rem, 92vw);
+  height: min(20rem, 38vw);
+  border-radius: 50%;
+  background: radial-gradient(
+    ellipse 90% 80% at 82% 50%,
+    rgb(28 132 72 / 0.38),
+    rgb(14 92 52 / 0.12) 38%,
+    rgb(14 92 52 / 0.04) 62%,
+    transparent 78%
+  );
+  filter: blur(8px);
+}
+
+.repeat-stat-glow-secondary {
+  position: absolute;
+  top: 28%;
+  left: -4%;
+  width: min(36rem, 42vw);
+  height: min(18rem, 32vw);
+  border-radius: 50%;
+  background: radial-gradient(
+    ellipse at 40% 50%,
+    rgb(28 132 72 / 0.14),
+    rgb(14 92 52 / 0.05) 46%,
+    transparent 72%
+  );
+  filter: blur(14px);
+}
+
 .raycast-pill {
   position: relative;
   display: inline-flex;
@@ -279,6 +328,22 @@ canvas {
   background: rgb(22 24 26 / 0.72);
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
+}
+
+.faq-item summary {
+  list-style: none;
+}
+
+.faq-item summary::-webkit-details-marker {
+  display: none;
+}
+
+.faq-toggle::before {
+  content: "+";
+}
+
+.faq-item[open] .faq-toggle::before {
+  content: "−";
 }
 
 .glass-card {

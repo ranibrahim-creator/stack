@@ -14,10 +14,10 @@ export function Footer() {
       >
         <LineField className="absolute inset-0 [mask-image:radial-gradient(ellipse_80%_70%_at_50%_50%,black_8%,transparent_70%)]" />
         <div className="section-shell relative flex flex-col items-center justify-center text-center">
-          <p className="section-display max-w-4xl text-center text-balance">
+          <h2 className="section-display max-w-4xl text-center text-balance">
             <span className="section-display-muted block">Built by noon.</span>
             <span className="section-display-strong block">Embedded into noon.</span>
-          </p>
+          </h2>
         </div>
       </section>
 

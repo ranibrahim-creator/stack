@@ -1,6 +1,6 @@
 # stack
 
-Public marketing site for Stack — noon’s UAE seller financing.
+Public marketing site for Stack, noon’s UAE seller financing.
 
 ```bash
 npm install

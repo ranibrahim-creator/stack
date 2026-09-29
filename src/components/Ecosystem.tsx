@@ -101,7 +101,7 @@ export function Ecosystem() {
             line2="Built into noon."
           />
           <p className="mt-4 max-w-[32rem] text-[14px] leading-[1.5] text-[#8A8F98]">
-            Seller Lab, fulfilment, commerce data, and weekly payouts — now
+            Seller Lab, fulfilment, commerce data, and weekly payouts, now
             powering financing too.
           </p>
         </Reveal>
@@ -160,6 +160,7 @@ export function Ecosystem() {
               <ul
                 key={copy}
                 className="flex items-center gap-8 text-[14px] text-white/80"
+                aria-hidden={copy === 1 ? true : undefined}
               >
                 {ticker.map((item) => (
                   <li key={`${copy}-${item}`} className="flex items-center gap-8">

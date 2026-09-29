@@ -1,11 +1,6 @@
 import type { Metadata } from "next";
-import { Geist, IBM_Plex_Mono, IBM_Plex_Sans, Inter, Inter_Tight } from "next/font/google";
+import { IBM_Plex_Mono, Inter, Inter_Tight } from "next/font/google";
 import "./globals.css";
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
 
 const inter = Inter({
   variable: "--font-inter",
@@ -17,17 +12,16 @@ const interTight = Inter_Tight({
   subsets: ["latin"],
 });
 
-const plexSans = IBM_Plex_Sans({
-  variable: "--font-plex-sans",
-  subsets: ["latin"],
-  weight: ["400", "500"],
-});
-
 const plexMono = IBM_Plex_Mono({
   variable: "--font-plex-mono",
   subsets: ["latin"],
-  weight: ["400", "500"],
+  weight: ["400"],
 });
+
+const siteUrl = "https://ranibrahim-creator.github.io/stack";
+const title = "Financing built into commerce. - Stack";
+const description =
+  "Working capital for noon sellers in the UAE, based on your sales.";
 
 export const viewport = {
   width: "device-width",
@@ -35,16 +29,29 @@ export const viewport = {
 };
 
 export const metadata: Metadata = {
-  title: "Stack — Funding that grows with your sales",
-  description:
-    "Working capital for noon sellers in the UAE, based on your sales. No applications, no fixed bill.",
+  metadataBase: new URL(siteUrl),
+  title,
+  description,
+  openGraph: {
+    title,
+    description,
+    url: siteUrl,
+    siteName: "Stack",
+    type: "website",
+    locale: "en_AE",
+  },
+  twitter: {
+    card: "summary",
+    title,
+    description,
+  },
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${inter.variable} ${interTight.variable} ${plexSans.variable} ${plexMono.variable} h-full antialiased`}
+      className={`${inter.variable} ${interTight.variable} ${plexMono.variable} h-full antialiased`}
     >
       <body
         className="min-h-full overflow-x-hidden font-sans text-ink"

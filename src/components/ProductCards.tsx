@@ -102,13 +102,13 @@ function RepaymentFigure() {
 
 const figures = [
   {
-    title: "Pre-qualified from your data",
-    body: "No separate application. Eligibility comes from your existing noon sales and inventory.",
+    title: "Pre-qualified using noon commerce data",
+    body: "Eligibility comes from your existing noon sales and inventory.",
     Figure: DataFigure,
   },
   {
     title: "Tied to your inventory",
-    body: "Capital sits on stock noon already holds. Not a separate credit check.",
+    body: "Financing is tied to inventory held within noon’s warehouses.",
     Figure: InventoryFigure,
   },
   {
@@ -122,7 +122,7 @@ export function ProductCards() {
   return (
     <section id="products" className="section-shell">
       <Reveal>
-        <SectionTitle line1="Why choose" line2="Stack" />
+        <SectionTitle line1="Financing built around" line2="how you already sell" />
       </Reveal>
       <div className="mt-6 grid grid-cols-1 gap-0 sm:grid-cols-2 lg:mt-8 lg:grid-cols-3">
         {figures.map((item, index) => (

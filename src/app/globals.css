@@ -271,14 +271,13 @@ canvas {
 }
 
 .repeat-panel {
-  --pages-bust: h;
-  background:
-    radial-gradient(
-      ellipse 110% 70% at 50% 50%,
-      rgb(14 92 52 / 0.26),
-      rgb(12 16 14 / 0.98) 68%
-    ),
-    #111113;
+  --pages-bust: j;
+  background-color: #111113;
+  background-image: radial-gradient(
+    ellipse 110% 70% at 50% 50%,
+    rgba(14, 92, 52, 0.26) 0%,
+    rgba(12, 16, 14, 0.98) 68%
+  );
   border: 1px solid rgb(255 255 255 / 0.1);
   box-shadow:
     0 16px 36px rgb(0 0 0 / 0.32),
@@ -310,9 +309,9 @@ canvas {
   border-radius: 50%;
   background: radial-gradient(
     ellipse 95% 80% at 50% 50%,
-    rgb(28 132 72 / 0.24),
-    rgb(14 92 52 / 0.1) 48%,
-    transparent 76%
+    rgba(28, 132, 72, 0.24) 0%,
+    rgba(14, 92, 52, 0.1) 48%,
+    rgba(0, 0, 0, 0) 76%
   );
   filter: blur(10px);
   transform: translate(-50%, -50%);
@@ -323,8 +322,8 @@ canvas {
   inset: 0;
   background: radial-gradient(
     ellipse 80% 60% at 50% 50%,
-    rgb(28 132 72 / 0.08),
-    transparent 70%
+    rgba(28, 132, 72, 0.08) 0%,
+    rgba(0, 0, 0, 0) 70%
   );
 }
 

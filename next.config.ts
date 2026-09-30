@@ -1,13 +1,18 @@
 import type { NextConfig } from "next";
 
-const isPages = process.env.GITHUB_PAGES === "1";
+const staticBase =
+  process.env.STATIC_BASE ??
+  (process.env.GITHUB_PAGES === "1" ? "/stack" : "");
+const isExport =
+  process.env.GITHUB_PAGES === "1" || process.env.STATIC_EXPORT === "1";
 
 const nextConfig: NextConfig = {
-  ...(isPages
+  ...(isExport
     ? {
         output: "export" as const,
-        basePath: "/stack",
-        assetPrefix: "/stack",
+        ...(staticBase
+          ? { basePath: staticBase, assetPrefix: staticBase }
+          : {}),
       }
     : {}),
   images: { unoptimized: true },

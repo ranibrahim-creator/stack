@@ -51,7 +51,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="en"
-      data-published="20260930k"
+      data-published="20260930m"
       className={`${inter.variable} ${interTight.variable} ${plexMono.variable} h-full antialiased`}
     >
       <body

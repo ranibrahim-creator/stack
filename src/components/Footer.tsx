@@ -1,17 +1,9 @@
 import { LineField } from "./LineField";
-import { Logo } from "./Logo";
 
 export function Footer() {
   return (
     <div>
-      <section
-        id="close"
-        className="relative overflow-hidden"
-        style={{
-          backgroundImage:
-            "radial-gradient(ellipse 72% 64% at 50% 45%, rgba(28, 132, 72, 0.22) 0%, rgba(14, 92, 52, 0.1) 42%, rgba(0, 0, 0, 0) 70%)",
-        }}
-      >
+      <section id="close" className="relative overflow-hidden">
         <LineField className="absolute inset-0 [mask-image:radial-gradient(ellipse_80%_70%_at_50%_50%,black_8%,transparent_70%)]" />
         <div className="section-shell relative flex flex-col items-center justify-center text-center">
           <h2 className="section-display max-w-4xl text-center text-balance">
@@ -21,38 +13,17 @@ export function Footer() {
         </div>
       </section>
 
-      <footer id="contact" className="section-shell border-t border-white/[0.06]">
-        <div className="flex flex-col gap-2 text-[12px] leading-[1.5] text-[#a3a8a2] sm:flex-row sm:flex-wrap sm:gap-x-8 sm:gap-y-2">
-          <p>
-            Sellers{" "}
-            <a href="mailto:stack@noon.com" className="underline underline-offset-2">
-              stack@noon.com
-            </a>
-          </p>
-          <p>
-            Partners{" "}
-            <a href="mailto:stack@noon.com" className="underline underline-offset-2">
-              stack@noon.com
-            </a>
-          </p>
-        </div>
-
-        <div className="mt-8 flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
-          <div className="flex items-center gap-4 text-[#a3a8a2]">
-            <a
-              href="#top"
-              className="flex items-center gap-2"
-              aria-label="stack"
-            >
-              <Logo className="h-4 w-5" />
-            </a>
-            <p className="text-[12px] leading-[1.5]">© noon</p>
-          </div>
-          <nav className="flex flex-wrap gap-x-6 gap-y-2 text-[12px] leading-[1.5] text-[#a3a8a2]" aria-label="Legal">
-            <a href="#terms" className="underline underline-offset-2">Terms</a>
-            <a href="#privacy" className="underline underline-offset-2">Privacy</a>
-          </nav>
-        </div>
+      <footer
+        id="contact"
+        className="section-shell flex items-center justify-between gap-6 border-t border-white/[0.06] text-[12px] leading-none text-[#a3a8a2]"
+      >
+        <a href="mailto:stack@noon.com" className="underline underline-offset-2">
+          stack@noon.com
+        </a>
+        <nav className="flex items-center gap-6" aria-label="Legal">
+          <a href="#terms" className="underline underline-offset-2">Terms</a>
+          <a href="#privacy" className="underline underline-offset-2">Privacy</a>
+        </nav>
       </footer>
     </div>
   );

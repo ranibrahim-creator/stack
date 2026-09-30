@@ -34,7 +34,7 @@ export function ConnectedStagesMinimal() {
   return (
     <section
       id="layers"
-      className="section-shell relative !pb-12 md:!pb-16 lg:!pb-24"
+      className="section-shell relative"
     >
       <div className="relative">
         <SectionTitle
@@ -47,11 +47,7 @@ export function ConnectedStagesMinimal() {
             {stages.map((stage, index) => (
               <motion.li
                 key={stage.title}
-                className="relative flex h-full min-w-0 flex-col rounded-[12px] border border-white/[0.06] p-6 backdrop-blur-[24px] backdrop-saturate-150"
-                style={{
-                  background:
-                    "radial-gradient(ellipse 90% 80% at 88% 0%, rgb(28 132 72 / 0.22), rgb(14 92 52 / 0.08) 42%, transparent 70%), rgb(8 10 12 / 0.42)",
-                }}
+                className="stage-card group relative flex h-full min-w-0 flex-col rounded-[12px] border border-white/[0.06] p-6 backdrop-blur-[24px] backdrop-saturate-150"
                 initial={reduce ? false : { opacity: 0, y: 16 }}
                 animate={inView || reduce ? { opacity: 1, y: 0 } : { opacity: 0, y: 16 }}
                 transition={{
@@ -63,7 +59,7 @@ export function ConnectedStagesMinimal() {
                 <p className="font-[family-name:var(--font-plex-mono)] text-[12px] tracking-[0.16em] text-[#a3a8a2] uppercase">
                   {String(index + 1).padStart(2, "0")}
                 </p>
-                <h3 className="mt-4 font-[family-name:var(--font-inter-tight)] text-[18px] font-medium leading-none tracking-[-0.03em] text-white">
+                <h3 className="mt-4 font-[family-name:var(--font-inter-tight)] text-[18px] font-medium leading-none tracking-[-0.03em] text-white transition-colors duration-300 group-hover:text-[#3cb86a]">
                   {stage.title}
                 </h3>
                 <p className="mt-3 max-w-[28ch] text-[14px] leading-[1.5] text-[#8A8F98]">

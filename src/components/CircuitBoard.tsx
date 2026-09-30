@@ -141,7 +141,8 @@ export function CircuitBoard({
           const from = byId[link.from];
           const to = byId[link.to];
           if (!from || !to) return null;
-          const trimmed = shorten(from, to, 26, 22);
+          const endPad = to.id === "lab" ? 40 : 22;
+          const trimmed = shorten(from, to, 26, endPad);
           const d = tracePath(trimmed.from, trimmed.to);
           const corner = cornerOf(trimmed.from, trimmed.to);
           return (

@@ -93,8 +93,8 @@ const ticker = [
 export function Ecosystem() {
   return (
     <section id="ecosystem" className="section-shell">
-      <div className="grid items-center gap-6 md:grid-cols-2 md:gap-8 lg:gap-12">
-        <Reveal className="min-w-0 md:pt-2">
+      <div className="grid items-center gap-12 md:grid-cols-2 md:gap-16 lg:gap-24">
+        <Reveal className="min-w-0">
           <SectionTitle
             className="max-w-[12ch]"
             line1="Stack."
@@ -106,7 +106,7 @@ export function Ecosystem() {
           </p>
         </Reveal>
 
-        <Reveal delay={0.06} className="mx-auto min-w-0 w-full max-w-[400px] md:mx-0 md:ml-auto">
+        <Reveal delay={0.06} className="mx-auto min-w-0 w-full max-w-[480px] md:mx-0 md:ml-auto lg:max-w-[520px]">
           <CircuitBoard
             className="w-full"
             width={500}
@@ -153,7 +153,7 @@ export function Ecosystem() {
         </Reveal>
       </div>
 
-      <Reveal delay={0.1} className="mt-16 mb-16">
+      <Reveal delay={0.1} className="mt-16">
         <div className="overflow-hidden">
           <div className="eco-marquee flex w-max items-center gap-8 pr-8">
             {[0, 1].map((copy) => (

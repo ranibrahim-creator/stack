@@ -255,15 +255,15 @@ canvas {
 .repeat-panel {
   background:
     radial-gradient(
-      ellipse 80% 70% at 38% 50%,
-      rgb(14 92 52 / 0.22),
-      rgb(8 28 18 / 0.4) 68%
+      ellipse 110% 70% at 50% 50%,
+      rgb(14 92 52 / 0.26),
+      rgb(12 16 14 / 0.98) 68%
     ),
-    rgb(8 12 10 / 0.88);
-  border: 1px solid rgb(255 255 255 / 0.08);
+    #111113;
+  border: 1px solid rgb(255 255 255 / 0.1);
   box-shadow:
     0 16px 36px rgb(0 0 0 / 0.32),
-    0 0 0 1px rgb(14 92 52 / 0.1);
+    0 0 0 1px rgb(28 132 72 / 0.12);
 }
 
 .repeat-field-dots {
@@ -286,34 +286,27 @@ canvas {
   position: absolute;
   top: 50%;
   left: 50%;
-  width: min(80rem, 100%);
-  height: min(28rem, 70%);
+  width: 120%;
+  height: min(14rem, 55%);
   border-radius: 50%;
   background: radial-gradient(
-    ellipse 90% 70% at 50% 50%,
-    rgb(28 132 72 / 0.18),
-    rgb(14 92 52 / 0.08) 42%,
-    rgb(10 32 20 / 0.04) 68%,
-    transparent 82%
+    ellipse 95% 80% at 50% 50%,
+    rgb(28 132 72 / 0.24),
+    rgb(14 92 52 / 0.1) 48%,
+    transparent 76%
   );
-  filter: blur(8px);
+  filter: blur(10px);
   transform: translate(-50%, -50%);
 }
 
 .repeat-stat-glow-secondary {
   position: absolute;
-  top: 45%;
-  left: 18%;
-  width: min(36rem, 50vw);
-  height: min(18rem, 32vw);
-  border-radius: 50%;
+  inset: 0;
   background: radial-gradient(
-    ellipse at 40% 50%,
-    rgb(28 132 72 / 0.09),
-    rgb(14 92 52 / 0.04) 46%,
-    transparent 72%
+    ellipse 80% 60% at 50% 50%,
+    rgb(28 132 72 / 0.08),
+    transparent 70%
   );
-  filter: blur(14px);
 }
 
 .repeat-stat-rule {
@@ -321,9 +314,9 @@ canvas {
   background: linear-gradient(
     to right,
     transparent 0%,
-    rgb(237 239 233 / 0.06) 24%,
-    rgb(237 239 233 / 0.14) 50%,
-    rgb(237 239 233 / 0.06) 76%,
+    rgb(237 239 233 / 0.1) 18%,
+    rgb(237 239 233 / 0.22) 50%,
+    rgb(237 239 233 / 0.1) 82%,
     transparent 100%
   );
 }

@@ -36,22 +36,19 @@ export function RepeatUse() {
           <div className="repeat-stat-glow-primary" />
           <div className="repeat-stat-glow-secondary" />
         </div>
-        <div className="relative z-10 flex w-full items-center gap-4 px-6 py-10 md:gap-6 md:px-8 md:py-14 lg:gap-8 lg:px-12 lg:py-16">
+        <div className="relative z-10 grid w-full grid-cols-[auto_minmax(2.5rem,1fr)_auto] items-center gap-x-4 px-6 pt-12 pb-20 md:gap-x-6 md:px-8 md:pt-14 md:pb-24 lg:gap-x-8 lg:px-12 lg:pt-16">
           <SectionTitle
-            className="relative z-10 shrink-0 text-left"
+            className="relative z-10 text-left"
             line1="Built for"
             line2="repeat use."
           />
-          <div
-            className="repeat-stat-rule relative min-h-px min-w-6 flex-1 self-center"
-            aria-hidden
-          />
-          <div className="relative z-10 shrink-0 text-right">
-            <p className="relative font-[family-name:var(--font-inter-tight)] text-[72px] font-semibold leading-none tracking-[-0.06em] text-ink sm:text-[88px] lg:text-[112px]">
+          <div className="repeat-stat-rule h-px w-full self-center" aria-hidden />
+          <div className="relative z-10 text-right">
+            <p className="font-[family-name:var(--font-inter-tight)] text-[72px] font-semibold leading-none tracking-[-0.06em] text-ink sm:text-[88px] lg:text-[112px]">
               <span>{inView || reduce ? count : 0}</span>
               <span>+</span>
             </p>
-            <p className="relative mt-4 font-[family-name:var(--font-inter-tight)] text-[18px] font-medium leading-[1.35] tracking-[-0.02em] text-[#d5d8d3] md:text-[22px]">
+            <p className="absolute top-full right-0 mt-3 font-[family-name:var(--font-inter-tight)] text-[18px] font-medium leading-[1.35] tracking-[-0.02em] text-[#d5d8d3] md:text-[22px]">
               financing cycles per seller on average
             </p>
           </div>

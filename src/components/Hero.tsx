@@ -1,6 +1,6 @@
 export function Hero() {
   return (
-    <section className="flex h-[calc(100svh-4rem)] items-end overflow-hidden">
+    <section className="flex h-[calc(100svh-3.5rem)] items-end overflow-hidden sm:h-[calc(100svh-4rem)]">
       <div className="section-shell">
         <h1 className="hero-title text-left">
           Financing built into

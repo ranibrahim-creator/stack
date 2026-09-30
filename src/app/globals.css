@@ -116,6 +116,10 @@ body {
   color: #8a8f98;
 }
 
+#repeat .section-display {
+  font-size: clamp(1.75rem, 5.2vw, 4rem);
+}
+
 #repeat .section-display-muted {
   color: #b0b4ba;
 }
@@ -165,8 +169,22 @@ body {
 }
 
 #close .section-shell {
-  padding-top: 8rem;
-  padding-bottom: 8rem;
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+}
+
+@media (min-width: 768px) {
+  #close .section-shell {
+    padding-top: 6.5rem;
+    padding-bottom: 6.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  #close .section-shell {
+    padding-top: 8rem;
+    padding-bottom: 8rem;
+  }
 }
 
 #close .section-display {
@@ -744,7 +762,7 @@ canvas {
 
 .hero-title {
   font-family: var(--font-inter-tight), sans-serif;
-  font-size: clamp(3.25rem, 9vw, 6.5rem);
+  font-size: clamp(2.35rem, 11vw, 6.5rem);
   font-weight: 600;
   line-height: 0.92;
   letter-spacing: -0.06em;

@@ -188,7 +188,7 @@ export function CircuitBoard({
           <div className="flex -translate-x-1/2 -translate-y-1/2 flex-col items-center">
             {node.icon}
           </div>
-          <span className="absolute top-[18px] left-1/2 w-max -translate-x-1/2 text-center font-[family-name:var(--font-plex-mono)] text-[12px] leading-[1.3] text-[#8A8F98]">
+          <span className="absolute top-[16px] left-1/2 w-[7.5rem] -translate-x-1/2 text-center font-[family-name:var(--font-plex-mono)] text-[10px] leading-[1.25] text-[#8A8F98] sm:w-max sm:text-[11px] md:text-[12px] md:leading-[1.3]">
             {node.label}
           </span>
         </div>

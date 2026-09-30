@@ -93,7 +93,7 @@ const ticker = [
 export function Ecosystem() {
   return (
     <section id="ecosystem" className="section-shell">
-      <div className="grid items-center gap-12 md:grid-cols-2 md:gap-16 lg:gap-24">
+      <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-16 xl:gap-24">
         <Reveal className="min-w-0">
           <SectionTitle
             className="max-w-[12ch]"
@@ -106,7 +106,7 @@ export function Ecosystem() {
           </p>
         </Reveal>
 
-        <Reveal delay={0.06} className="mx-auto min-w-0 w-full max-w-[480px] md:mx-0 md:ml-auto lg:max-w-[520px]">
+        <Reveal delay={0.06} className="mx-auto min-w-0 w-full max-w-[400px] sm:max-w-[480px] lg:mx-0 lg:ml-auto lg:max-w-[520px]">
           <CircuitBoard
             className="w-full"
             width={500}

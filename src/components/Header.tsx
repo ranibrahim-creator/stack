@@ -10,7 +10,7 @@ export function Header() {
       }}
     >
       <div className="chrome-bloom pointer-events-none absolute inset-0" aria-hidden />
-      <div className="relative flex h-16 items-center px-6 md:px-8 lg:px-10">
+      <div className="relative flex h-14 items-center px-4 sm:h-16 sm:px-6 md:px-8 lg:px-10">
         <a
           href="#top"
           className="flex items-center gap-2 text-ink"

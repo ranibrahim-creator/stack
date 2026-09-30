@@ -9,7 +9,7 @@ import { StagesSection } from "@/components/StagesSection";
 
 export default function Home() {
   return (
-    <div id="top" className="relative overflow-x-hidden pt-16" style={{ background: "var(--bg)" }}>
+    <div id="top" className="relative overflow-x-hidden pt-14 sm:pt-16" style={{ background: "var(--bg)" }}>
       <a href="#content" className="skip-link">
         Skip to content
       </a>

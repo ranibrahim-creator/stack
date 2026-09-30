@@ -15,7 +15,7 @@ export function Footer() {
 
       <footer
         id="contact"
-        className="section-shell flex items-center justify-between gap-6 border-t border-white/[0.06] text-[12px] leading-none text-[#a3a8a2]"
+        className="section-shell flex flex-wrap items-center justify-between gap-x-6 gap-y-3 border-t border-white/[0.06] text-[12px] leading-none text-[#a3a8a2]"
       >
         <a href="mailto:stack@noon.com" className="underline underline-offset-2">
           stack@noon.com

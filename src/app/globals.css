@@ -270,8 +270,8 @@ canvas {
   filter: drop-shadow(0 0 12px rgb(28 132 72 / 0.28));
 }
 
-/* pages-bust 20260930h */
 .repeat-panel {
+  --pages-bust: h;
   background:
     radial-gradient(
       ellipse 110% 70% at 50% 50%,
